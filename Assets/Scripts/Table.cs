@@ -5,7 +5,8 @@ using UnityEngine;
 public class Table : MonoBehaviour
 {
     const uint dishTypeCount = 5;
-
+    public float dishGenerationDelay = 2;
+    public float maxRandomDelayDeviation = 0;
     private uint m_tip = 0;
     private uint m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
@@ -60,7 +61,7 @@ public class Table : MonoBehaviour
     IEnumerator PostServeCoroutine()
     {
         m_isWaitingForDish = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(dishGenerationDelay + Random.RandomRange(0,maxRandomDelayDeviation));
         desiredDishType = (uint)Random.Range(0, dishTypeCount - 1);
         m_isWaitingForDish = true;
     }
