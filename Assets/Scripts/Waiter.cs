@@ -20,7 +20,7 @@ public class Waiter : MonoBehaviour {
 
     public void Dash(Vector2 normalized_input)
     {
-   //     body.AddForce(Vector2(5000, 5000));
+        body.AddForce(normalized_input * 155550);
     }
 
 

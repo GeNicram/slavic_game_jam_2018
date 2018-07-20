@@ -16,7 +16,7 @@ public class WaitersInput : MonoBehaviour {
 	void Update () {
 		for (int i = 0; i < waiters.Length; i++)
 		{
-            if (Input.GetKeyUp(KeyCode.A)) 
+            if (Input.GetKeyUp("joystick button " + i.ToString())) 
            {
                 dash = true;
                 Debug.Log("dupa");
