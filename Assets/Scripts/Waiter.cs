@@ -8,14 +8,19 @@ public class Waiter : MonoBehaviour {
 
 	protected Rigidbody2D body;
 
-    private uint collectedTip = 0;
+    private uint m_collectedTip = 0;
     private int carriedDishType = -1;
 
     private List<Table> tablesInRange = new List<Table>();
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
-	// Use this for initialization
-	void Start () {
+    public uint collectedTip
+    {
+        get { return m_collectedTip; }
+    }
+
+    // Use this for initialization
+    void Start () {
 		body = GetComponent<Rigidbody2D>();
 	}
 	
@@ -65,7 +70,7 @@ public class Waiter : MonoBehaviour {
                 Debug.Assert(closestTable.isWaitingForDish);
                 closestTable.Serve(carriedDishType);
                 RemoveDish();
-                collectedTip += closestTable.CollectTip();
+                m_collectedTip += closestTable.CollectTip();
             }
         }
         else
