@@ -118,7 +118,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Mouse Y
+    m_Name: Vertical3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
