@@ -1,0 +1,6 @@
+level design
+logic of counter
+logic of clients
+controls
+menu screen
+wobbling
