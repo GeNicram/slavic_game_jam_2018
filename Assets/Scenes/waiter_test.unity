@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &74021302
+--- !u!1001 &278814077
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -151,6 +151,46 @@ Prefab:
     - target: {fileID: 4162376187503070, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331021885487220, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331021885487220, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206006894775922, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206006894775922, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446695586896434, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446695586896434, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764234769212702, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_Name
+      value: LegRPivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071461869260688, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_Name
+      value: LegR
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089779998351778, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_Name
+      value: LegLPivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085945494802762, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_Name
+      value: LegL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
@@ -345,5 +385,5 @@ MonoBehaviour:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
     type: 2}
-  m_PrefabInternal: {fileID: 74021302}
+  m_PrefabInternal: {fileID: 278814077}
   m_Script: {fileID: 11500000, guid: efc2dade045821f41a2f48a5c2304d8b, type: 3}
