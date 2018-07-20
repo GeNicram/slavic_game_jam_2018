@@ -68,7 +68,7 @@ public class Table : MonoBehaviour
 
     void OnGUI()
     {
-        if (isWaitingForDish)  // or check the app debug flag
+        if (isWaitingForDish)
         {
             Transform transform = GetComponent<Transform>();
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
