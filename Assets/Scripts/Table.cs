@@ -9,6 +9,7 @@ public class Table : MonoBehaviour
     private uint m_tip = 0;
     private int m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
+    private bool m_didLeaveCorrectDish = true;
 
     public int desiredDishType
     {
@@ -48,7 +49,7 @@ public class Table : MonoBehaviour
         {
             LeaveTip((uint)Random.Range(10, 20));//todo
         }
-
+        m_didLeaveCorrectDish = didLeaveCorrectDish;
         StartCoroutine(PostServeCoroutine());
         return didLeaveCorrectDish;
     }
@@ -63,13 +64,19 @@ public class Table : MonoBehaviour
 
     void OnGUI()
     {
+        Transform transform = GetComponent<Transform>();
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        GUIStyle style = new GUIStyle();
         if (isWaitingForDish)
         {
-            Transform transform = GetComponent<Transform>();
-            Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-            GUIStyle style = new GUIStyle();
             style.normal.textColor = Color.black;
             GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "I want dish type <" + desiredDishType + ">", style);
+        }
+        else
+        {
+            style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
+            string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
+            GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
         }
     }
 }

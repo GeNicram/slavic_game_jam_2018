@@ -44,6 +44,10 @@ public class DishPickup : MonoBehaviour
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         GUIStyle style = new GUIStyle();
         style.normal.textColor = Color.black;
+        if (!hasDish)
+        {
+            style.normal.textColor = Color.red;
+        }
         GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), dishType.ToString(), style);
     }
 }

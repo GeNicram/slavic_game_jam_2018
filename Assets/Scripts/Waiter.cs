@@ -10,8 +10,9 @@ public class Waiter : MonoBehaviour {
 
     private uint collectedTip = 0;
     private int carriedDishType = -1;
-    private Table closestTable = null;
-    private DishPickup closestDishPickup = null;
+
+    private List<Table> tablesInRange = new List<Table>();
+    private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
 	// Use this for initialization
 	void Start () {
@@ -50,8 +51,18 @@ public class Waiter : MonoBehaviour {
     {
         if (IsCarryingDish())
         {
-            if (closestTable != null && closestTable.isWaitingForDish)
+            Table closestTable = null;
+            foreach (var table in tablesInRange)
             {
+                if (table.isWaitingForDish)
+                {
+                    closestTable = table;
+                }
+            }
+
+            if (closestTable != null)
+            {
+                Debug.Assert(closestTable.isWaitingForDish);
                 closestTable.Serve(carriedDishType);
                 RemoveDish();
                 collectedTip += closestTable.CollectTip();
@@ -59,8 +70,22 @@ public class Waiter : MonoBehaviour {
         }
         else
         {
-            if (closestDishPickup != null && closestDishPickup.hasDish)
+            Vector3 pos = GetComponent<Transform>().position;
+            DishPickup closestDishPickup = null;
+            float closestDishPickupDistance = float.MaxValue;
+            foreach (var dishPickup in dishPickupsInRange)
             {
+                float distance = (dishPickup.GetComponent<Transform>().position - pos).sqrMagnitude;
+                if (dishPickup.hasDish && distance < closestDishPickupDistance)
+                {
+                    closestDishPickup = dishPickup;
+                    closestDishPickupDistance = distance;
+                }
+            }
+
+            if (closestDishPickup != null)
+            {
+                Debug.Assert(closestDishPickup.hasDish);
                 carriedDishType = closestDishPickup.PickUp();
             }
         }
@@ -70,11 +95,13 @@ public class Waiter : MonoBehaviour {
     {
         if (collision.CompareTag("Table"))
         {
-            closestTable = collision.GetComponent<Table>();
+            Table table = collision.GetComponent<Table>();
+            tablesInRange.Add(table);
         }
         else if (collision.CompareTag("DishPickup"))
         {
-            closestDishPickup = collision.GetComponent<DishPickup>();
+            DishPickup pickup = collision.GetComponent<DishPickup>();
+            dishPickupsInRange.Add(pickup);
         }
     }
 
@@ -82,11 +109,13 @@ public class Waiter : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Table"))
         {
-            closestTable = null;
+            Table table = collision.GetComponent<Table>();
+            tablesInRange.Remove(table);
         }
         else if (collision.gameObject.CompareTag("DishPickup"))
         {
-            closestDishPickup = null;
+            DishPickup pickup = collision.GetComponent<DishPickup>();
+            dishPickupsInRange.Remove(pickup);
         }
     }
 
