@@ -3,3 +3,6 @@ logic of counter
 logic of clients - Andreas
 menu screen
 character and movement - Patryk
+
+
+screen adding / joining players 
