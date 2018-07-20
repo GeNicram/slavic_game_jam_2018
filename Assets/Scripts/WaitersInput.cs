@@ -23,8 +23,10 @@ public class WaitersInput : MonoBehaviour {
 	{
 		//TODO make it work for multiple pads
 		var current_waiter = waiters[waiter_index];
-		float vertical_input = Input.GetAxis("Vertical");
-		float horizontal_input = Input.GetAxis("Horizontal");
+		string vertical_input_name = "Vertical" + waiter_index.ToString();
+		string horizontal_input_name = "Horizontal" + waiter_index.ToString();
+		float vertical_input = Input.GetAxis(vertical_input_name);
+		float horizontal_input = Input.GetAxis(horizontal_input_name);
 		Vector2 input_vector = new Vector2(horizontal_input, vertical_input);
 		current_waiter.ProcessInput(input_vector.normalized);
 	}
