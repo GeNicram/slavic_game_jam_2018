@@ -17,6 +17,9 @@ public class Waiter : MonoBehaviour {
     private List<Table> tablesInRange = new List<Table>();
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
+    private bool canDash = true;
+    public float dashCooldown = 0.5f;
+
     public int collectedTip
     {
         get { return m_collectedTip; }
@@ -34,7 +37,18 @@ public class Waiter : MonoBehaviour {
 
     public void Dash(Vector2 normalized_input)
     {
-        body.AddForce(normalized_input * 155550);
+        if (canDash)
+        {
+            canDash = false;
+            body.AddForce(normalized_input * 155550);
+            StartCoroutine(DashDelayCoroutine());
+        }
+    }
+
+    IEnumerator DashDelayCoroutine()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;  
     }
 
 
