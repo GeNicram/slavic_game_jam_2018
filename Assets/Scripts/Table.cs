@@ -6,7 +6,7 @@ public class Table : MonoBehaviour
 {
     public float dishGenerationDelay = 2;
     public float maxRandomDelayDeviation = 0;
-    private uint m_tip = 0;
+    private int m_tip = 0;
     private int m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
     private bool m_didLeaveCorrectDish = true;
@@ -30,14 +30,14 @@ public class Table : MonoBehaviour
 
     }
     
-    public void LeaveTip(uint tip)
+    public void LeaveTip(int tip)
     {
         m_tip += tip;
     }
 
-    public uint CollectTip()
+    public int CollectTip()
     {
-        uint tip = m_tip;
+        int tip = m_tip;
         m_tip = 0;
         return tip;
     }
@@ -47,7 +47,7 @@ public class Table : MonoBehaviour
         bool didLeaveCorrectDish = (dishType == desiredDishType);
         if (didLeaveCorrectDish)
         {
-            LeaveTip((uint)Random.Range(10, 20));//todo
+            LeaveTip(Random.Range(10, 20));//todo
         }
         m_didLeaveCorrectDish = didLeaveCorrectDish;
         StartCoroutine(PostServeCoroutine());

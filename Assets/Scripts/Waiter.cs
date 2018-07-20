@@ -6,15 +6,18 @@ public class Waiter : MonoBehaviour {
 
 	public float speed;
 
-	protected Rigidbody2D body;
+    public int incorrectDishPenalty = 10;
+    public int incorrectDishPenaltyDeviation = 5;
 
-    private uint m_collectedTip = 0;
+    protected Rigidbody2D body;
+
+    private int m_collectedTip = 0;
     private int carriedDishType = -1;
 
     private List<Table> tablesInRange = new List<Table>();
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
-    public uint collectedTip
+    public int collectedTip
     {
         get { return m_collectedTip; }
     }
@@ -68,9 +71,21 @@ public class Waiter : MonoBehaviour {
             if (closestTable != null)
             {
                 Debug.Assert(closestTable.isWaitingForDish);
-                closestTable.Serve(carriedDishType);
+                if (closestTable.Serve(carriedDishType))
+                {
+                    m_collectedTip += closestTable.CollectTip();
+                }
+                else
+                {
+                    int penalty = Random.Range(incorrectDishPenalty, incorrectDishPenalty + incorrectDishPenaltyDeviation);
+                    m_collectedTip -= penalty;
+                    if (m_collectedTip < 0)
+                    {
+                        m_collectedTip = 0;
+                    }
+                }
+
                 RemoveDish();
-                m_collectedTip += closestTable.CollectTip();
             }
         }
         else
