@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
-    const uint dishTypeCount = 5;
     public float dishGenerationDelay = 2;
     public float maxRandomDelayDeviation = 0;
     private uint m_tip = 0;
-    private uint m_desiredDishType = 0;
+    private int m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
 
-    public uint desiredDishType
+    public int desiredDishType
     {
         get { return m_desiredDishType; }
         set { m_desiredDishType = value; }
@@ -25,7 +24,7 @@ public class Table : MonoBehaviour
     private void Start()
     {
         m_tip = 0;
-        desiredDishType = (uint)Random.Range(0, dishTypeCount - 1);
+        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
         m_isWaitingForDish = true;
 
     }
@@ -35,34 +34,30 @@ public class Table : MonoBehaviour
         m_tip += tip;
     }
 
-    public uint TakeTip()
+    public uint CollectTip()
     {
         uint tip = m_tip;
         m_tip = 0;
         return tip;
     }
 
-    public bool Serve(uint dishType)
+    public bool Serve(int dishType)
     {
-        if (!m_isWaitingForDish)
-        {
-            return false;
-        }
-
-        if (dishType == desiredDishType)
+        bool didLeaveCorrectDish = (dishType == desiredDishType);
+        if (didLeaveCorrectDish)
         {
             LeaveTip((uint)Random.Range(10, 20));//todo
         }
 
         StartCoroutine(PostServeCoroutine());
-        return true;
+        return didLeaveCorrectDish;
     }
 
     IEnumerator PostServeCoroutine()
     {
         m_isWaitingForDish = false;
         yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0,maxRandomDelayDeviation));
-        desiredDishType = (uint)Random.Range(0, dishTypeCount - 1);
+        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
         m_isWaitingForDish = true;
     }
 

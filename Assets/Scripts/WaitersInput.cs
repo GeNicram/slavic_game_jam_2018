@@ -29,5 +29,10 @@ public class WaitersInput : MonoBehaviour {
 		float horizontal_input = Input.GetAxis(horizontal_input_name);
 		Vector2 input_vector = new Vector2(horizontal_input, vertical_input);
 		current_waiter.ProcessInput(input_vector.normalized);
+
+        if (Input.GetButtonDown("DishAction" + waiter_index.ToString()))
+        {
+            current_waiter.ProcessDishInput();
+        }
 	}
 }
