@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222649801675185100}
   - component: {fileID: 114199710287179552}
   m_Layer: 5
-  m_Name: WaiterPoints
+  m_Name: WaiterPoints0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 222666920685335816}
   - component: {fileID: 114506615288563454}
   m_Layer: 5
-  m_Name: WaiterPoints
+  m_Name: WaiterPoints3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 222289557760388712}
   - component: {fileID: 114729295929451588}
   m_Layer: 5
-  m_Name: WaiterPoints
+  m_Name: WaiterPoints2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 222021637718770454}
   - component: {fileID: 114540202027554460}
   m_Layer: 5
-  m_Name: WaiterPoints
+  m_Name: WaiterPoints1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,8 +297,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927106f646c74f0409e96a13307bf49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  waiters_points_view: []
+  timer: 600
+  waiters_points_view:
+  - {fileID: 114199710287179552}
+  - {fileID: 114540202027554460}
+  - {fileID: 114729295929451588}
+  - {fileID: 114506615288563454}
   timer_view: {fileID: 114526740393706908}
 --- !u!114 &114487648295836922
 MonoBehaviour:
