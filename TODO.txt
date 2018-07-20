@@ -1,5 +1,5 @@
 level design
 logic of counter
-logic of clients
+logic of clients - Andreas
 menu screen
 character and movement - Patryk
