@@ -18,8 +18,15 @@ public class Waiter : MonoBehaviour {
 		
 	}
 
-	public void ProcessInput(Vector2 normalized_input)
+    public void Dash(Vector2 normalized_input)
+    {
+   //     body.AddForce(Vector2(5000, 5000));
+    }
+
+
+    public void ProcessInput(Vector2 normalized_input)
 	{
+     
 		if (normalized_input.magnitude == 0) return;
 		body.AddForce(normalized_input * speed);
 	}
