@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
 {
     public float time_limit_seconds;
 
+    public Waiter[] waiters;
     public Text[] waiters_points_view;
     public Text timer_view;
 
@@ -25,7 +26,8 @@ public class GameState : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Debug.Assert(waiters.Length == waiters_points_view.Length);
+        // TODO: I've cleared waitres and not sure what should be there :)
+        Debug.Assert(waiters.Length == waiters_points_view.Length);
 
         for (int i = 0; i < m_results.Length; ++i) {
             m_results[i] = 0;
@@ -54,7 +56,7 @@ public class GameState : MonoBehaviour
   private void OnGUI()
   {
     for (int i = 0; i < waiters_points_view.Length; ++i) {
-      waiters_points_view[i].text = m_results[i].ToString();
+      waiters_points_view[i].text = waiters[i].collectedTip.ToString();
     }
 
     timer_view.text = FormatTime(current_time);
