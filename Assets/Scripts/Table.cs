@@ -61,7 +61,7 @@ public class Table : MonoBehaviour
     IEnumerator PostServeCoroutine()
     {
         m_isWaitingForDish = false;
-        yield return new WaitForSeconds(dishGenerationDelay + Random.RandomRange(0,maxRandomDelayDeviation));
+        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0,maxRandomDelayDeviation));
         desiredDishType = (uint)Random.Range(0, dishTypeCount - 1);
         m_isWaitingForDish = true;
     }
