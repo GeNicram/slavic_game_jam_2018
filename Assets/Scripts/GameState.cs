@@ -25,8 +25,7 @@ public class GameState : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Assert(waiters.Length == waiters_points_view.Length);
-        timer = 0;
+        //Debug.Assert(waiters.Length == waiters_points_view.Length);
 
         for (int i = 0; i < m_results.Length; ++i) {
             m_results[i] = 0;
@@ -68,7 +67,6 @@ public class GameState : MonoBehaviour
         int miliseconds = Mathf.FloorToInt((time - (float)seconds) * 1000);
 
         seconds %= 60;
-
 
         return string.Format("{0:00}:{1:00}.{2:000}",
           minutes, seconds, miliseconds);
