@@ -5,8 +5,9 @@ using UnityEngine;
 public class WaitersInput : MonoBehaviour {
 
 	public Waiter[] waiters;
-    bool dash = false; 
-
+    bool dash = false;
+    bool canDash = true;
+    float dashDelay = 0.5f;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,15 +17,16 @@ public class WaitersInput : MonoBehaviour {
 	void Update () {
 		for (int i = 0; i < waiters.Length; i++)
 		{
-            if (Input.GetKeyUp("joystick button " + i.ToString())) 
-           {
-                dash = true;
-                Debug.Log("dupa");
-            }
+            
 			ProcessInputForWaiter(i);
 		}
 	}
 
+    IEnumerator DashDelayCoro()
+    {
+        yield return new WaitForSeconds(dashDelay);
+        canDash = true;  
+    }
    
 
 	void ProcessInputForWaiter(int waiter_index)
@@ -44,10 +46,13 @@ public class WaitersInput : MonoBehaviour {
             current_waiter.ProcessDishInput();
         }
 
-        if (dash)
+
+        if (Input.GetKeyUp("joystick button " + waiter_index.ToString()) && canDash == true)
         {
+            canDash = false;
             current_waiter.Dash(input_vector.normalized);
-            dash = false;
-        }     
+            StartCoroutine("DashDelayCoro");
+            //        Debug.Log("dupa");
+        } 
     }
 }
