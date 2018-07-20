@@ -3,24 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+<<<<<<< Updated upstream
 public class GameState : MonoBehaviour
 {
-    public float time_limit_seconds;
+    public float timer;
 
+    public Waiter[] waiters;
     public Text[] waiters_points_view;
     public Text timer_view;
-
-    public GameObject ending_handler;
-
-    static private int[] m_results;
-
-    private float current_time;
-    private bool reached_end;
-
-    public GameState() : base()
-    {
-      m_results = new int[4];
-    }
 
     // Use this for initialization
     void Start()
@@ -28,15 +18,42 @@ public class GameState : MonoBehaviour
         Debug.Assert(waiters.Length == waiters_points_view.Length);
         timer = 0;
 
-        for (int i = 0; i < m_results.Length; ++i) {
-            m_results[i] = 0;
-        }
-
-        current_time = time_limit_seconds;
-        ending_handler.SetActive(false);
-        reached_end = false;
-
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime;
+=======
+public class GameState : MonoBehaviour {
+  public float time_limit_seconds;
+
+  public Text[] waiters_points_view;
+  public Text timer_view;
+
+  public GameObject ending_handler;
+
+  static private int[] m_results;
+
+  private float current_time;
+  private bool reached_end;
+
+  public GameState() : base()
+  {
+    m_results = new int[4];
+  }
+
+	// Use this for initialization
+	void Start() {
+    for (int i = 0; i < m_results.Length; ++i) {
+      m_results[i] = 0;
+    }
+
+    current_time = time_limit_seconds;
+    ending_handler.SetActive(false);
+    reached_end = false;
+	}
+	
 	// Update is called once per frame
 	void Update() {
     if (reached_end)
@@ -60,6 +77,20 @@ public class GameState : MonoBehaviour
 
     timer_view.text = FormatTime(current_time);
   }
+>>>>>>> Stashed changes
+
+    }
+
+    private void OnGUI()
+    {
+        for (int i = 0; i < waiters.Length; ++i)
+        {
+            waiters_points_view[i].text = waiters[i].collectedTip.ToString();
+        }
+
+<<<<<<< Updated upstream
+        timer_view.text = FormatTime(timer);
+    }
 
     private string FormatTime(float time)
     {
@@ -73,9 +104,15 @@ public class GameState : MonoBehaviour
         return string.Format("{0:00}:{1:00}.{2:000}",
           minutes, seconds, miliseconds);
     }
+}
+=======
+    return string.Format("{0:00}:{1:00}.{2:000}",
+      minutes, seconds, miliseconds);
+  }
 
   static public void AddPoints(int player, int points) {
     m_results[player] += points;
   }
 
 }
+>>>>>>> Stashed changes
