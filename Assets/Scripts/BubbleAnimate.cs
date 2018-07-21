@@ -26,6 +26,11 @@ public class BubbleAnimate : MonoBehaviour {
         passed_time += Time.deltaTime;
 	}
 
+    public void Fadeout()
+    {
+        Destroy(this.gameObject);
+    }
+
     private void SetAlpha(float value)
     {
         Color color = GetComponent<SpriteRenderer>().color;

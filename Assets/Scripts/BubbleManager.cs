@@ -10,8 +10,8 @@ public class BubbleManager : MonoBehaviour {
     };
 
     // This list should be same to Bubble enum
-    public GameObject[] bubbles;
-    static private GameObject[] m_bubbles;
+    public BubbleAnimate[] bubbles;
+    static private BubbleAnimate[] m_bubbles;
 
 	// Use this for initialization
 	void Start () {
@@ -26,12 +26,12 @@ public class BubbleManager : MonoBehaviour {
         }
 	}
 
-    public static GameObject SpawnBubble(Bubble type, Vector2 position, float duration)
+    public static BubbleAnimate SpawnBubble(Bubble type, Vector2 position, float duration)
     {
-        GameObject new_bubble = Instantiate(
+        BubbleAnimate new_bubble = Instantiate(
             m_bubbles[(int)type], position, new Quaternion());
 
-        Destroy(new_bubble, duration);
+        Destroy(new_bubble.gameObject, duration);
 
         return new_bubble;
     }

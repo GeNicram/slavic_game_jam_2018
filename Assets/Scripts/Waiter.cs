@@ -15,14 +15,15 @@ public class Waiter : MonoBehaviour {
     private Dish dish;
 
     private List<Table> tablesInRange = new List<Table>();
-	private List<Waiter> waitersInRange = new List<Waiter>();
-	private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
+    private List<Waiter> waitersInRange = new List<Waiter>();
+    private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
     private float stun_time = 0;
     private bool keep_dish_after_stun;
+    private BubbleAnimate bubble;
 
     public GameObject waiter_face;
     public GainPoints waiter_gain_points_particle;
@@ -86,9 +87,11 @@ public class Waiter : MonoBehaviour {
         stun_time = 5;
         keep_dish_after_stun = false;
         StartCoroutine(TryToKeepDish(stun_time / 2));
-        BubbleManager.SpawnBubble(BubbleManager.Bubble.pushY, 
-            new Vector2(transform.position.x + 0.5f, transform.position.y +1),
-            stun_time / 2);
+        if (IsCarryingDish()) {
+            bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushY,
+                new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
+                stun_time / 2);
+        }
     }
 
     private IEnumerator TryToKeepDish(float time_to_react)
@@ -102,18 +105,17 @@ public class Waiter : MonoBehaviour {
     public void ProcessDishInput()
     {
         if (IsCarryingDish())
-        {
+	    {
             Table closestTable = null;
             foreach (var table in tablesInRange)
-            {
-                if (table.isWaitingForDish)
-                {
+	        {
+                if (table.isWaitingForDish) {
                     closestTable = table;
                 }
             }
 
             if (closestTable != null)
-            {
+	        {
                 Debug.Assert(closestTable.isWaitingForDish);
                 if (closestTable.Serve(dish))
                 {
@@ -133,21 +135,22 @@ public class Waiter : MonoBehaviour {
                     new_particle.color = waiter_color;
                 }
                 else
-                {
+		        {
                     int penalty = Random.Range(incorrectDishPenalty, incorrectDishPenalty + incorrectDishPenaltyDeviation);
                     m_collectedTip -= penalty;
                     if (m_collectedTip < 0)
-                    {
+		            {
                         m_collectedTip = 0;
                     }
                 }
                 
                 RemoveDish();
-            } else
-			{
-				ThrowDish();
-				RemoveDish();
-			}
+            }
+            else
+            {
+                ThrowDish();
+                RemoveDish();
+            }
         }
         else
         {
@@ -172,6 +175,13 @@ public class Waiter : MonoBehaviour {
                 dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
             }
         }
+
+        if (stun_time > 0)
+        {
+            keep_dish_after_stun = true;
+            if (bubble)
+                bubble.Fadeout();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -186,11 +196,11 @@ public class Waiter : MonoBehaviour {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Add(pickup);
         }
-		else if (collision.CompareTag("Waiter"))
-		{
-			Waiter waiter = collision.GetComponentInParent<Waiter>();
-			waitersInRange.Add(waiter);
-		}
+        else if (collision.CompareTag("Waiter"))
+        {
+            Waiter waiter = collision.GetComponentInParent<Waiter>();
+            waitersInRange.Add(waiter);
+        }
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -213,10 +223,10 @@ public class Waiter : MonoBehaviour {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Remove(pickup);
         }
-		else if (collision.gameObject.CompareTag("Waiter"))
-		{
-			Waiter waiter = collision.GetComponentInParent<Waiter>();
-			waitersInRange.Remove(waiter);
-		}
+        else if (collision.gameObject.CompareTag("Waiter"))
+        {
+            Waiter waiter = collision.GetComponentInParent<Waiter>();
+            waitersInRange.Remove(waiter);
+        }
 	}
 }

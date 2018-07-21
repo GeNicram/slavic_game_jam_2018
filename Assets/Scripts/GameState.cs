@@ -36,7 +36,6 @@ public class GameState : MonoBehaviour
         current_time = time_limit_seconds;
         ending_handler.SetActive(false);
         reached_end = false;
-
     }
     // Update is called once per frame
     void Update() {
