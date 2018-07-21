@@ -224,7 +224,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995050802855672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.13, y: -2.83, z: 0}
+  m_LocalPosition: {x: -6.13, y: 1.98, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 4334777245630340}
@@ -403,7 +403,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -414,7 +414,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.75}
+  m_Size: {x: 0.4, y: 1.2}
   m_EdgeRadius: 0
 --- !u!95 &95185317091634090
 Animator:
@@ -460,6 +460,9 @@ MonoBehaviour:
   incorrectDishPenalty: 10
   incorrectDishPenaltyDeviation: 5
   dashCooldown: 0.5
+  waiter_face: {fileID: 0}
+  waiter_gain_points_particle: {fileID: 114861574312990490, guid: 0ad40435c837ec14984c0a5a606b13ff,
+    type: 2}
 --- !u!198 &198131591481338818
 ParticleSystem:
   m_ObjectHideFlags: 1
