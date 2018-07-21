@@ -169,7 +169,8 @@ public class Waiter : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.relativeVelocity.magnitude > 5) {
-            DropDish();
+            if (collision.collider.CompareTag("Obstacle"))
+                DropDish();
         }
     }
 
