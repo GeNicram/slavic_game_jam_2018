@@ -98,8 +98,10 @@ public class Waiter : MonoBehaviour {
     {
         yield return new WaitForSeconds(time_to_react);
 
-        if (!keep_dish_after_stun)
+        if (!keep_dish_after_stun) {
+            ThrowDish();
             RemoveDish();
+        }
     }
 
     public void ProcessDishInput()
@@ -146,6 +148,12 @@ public class Waiter : MonoBehaviour {
                 
                 RemoveDish();
             }
+            else if (stun_time > 0)
+            {
+                keep_dish_after_stun = true;
+                if (bubble)
+                    bubble.Fadeout();
+            }
             else
             {
                 ThrowDish();
@@ -174,13 +182,6 @@ public class Waiter : MonoBehaviour {
                 dish = closestDishPickup.PickUp();
                 dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
             }
-        }
-
-        if (stun_time > 0)
-        {
-            keep_dish_after_stun = true;
-            if (bubble)
-                bubble.Fadeout();
         }
     }
 
