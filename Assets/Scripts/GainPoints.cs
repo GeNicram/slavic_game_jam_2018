@@ -16,7 +16,7 @@ public class GainPoints : MonoBehaviour {
 
     ParticleSystem ps = GetComponent<ParticleSystem>();
     var main = ps.main;
-    main.startColor = new Color(1, 0, 0);// color;
+    main.startColor = color;
 
     passed_time = 0;
 	}
