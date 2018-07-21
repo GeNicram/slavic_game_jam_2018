@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaitersInput : MonoBehaviour {
-    public float deadzone = 0.1f;
+    public float deadzone = 1.0f;
 	public Waiter[] waiters;
     
 	// Use this for initialization
