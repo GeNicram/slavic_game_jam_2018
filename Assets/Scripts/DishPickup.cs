@@ -11,12 +11,10 @@ public class DishPickup : MonoBehaviour
     public AudioClip dishReady;
 
     private Dish m_dish;
-
-    int dishType = -1;
     
     public bool hasDish
     {
-        get { return dishType != -1; }
+        get { return m_dish != null; }
     }
 
     public Dish dish
@@ -26,9 +24,7 @@ public class DishPickup : MonoBehaviour
 
     private void SetRandom()
     {
-        dishType = Random.Range(0, Common.dishTypeCount - 1);
         GameObject dishObject = Instantiate(dishPrefab, GetComponent<Transform>().position, Quaternion.identity);
-        dishObject.GetComponent<SpriteRenderer>().sprite = Common.dishSprites[dishType];
         m_dish = dishObject.GetComponent<Dish>();
         audioSC.PlayOneShot(dishReady);
     }
@@ -40,13 +36,12 @@ public class DishPickup : MonoBehaviour
      //   
     }
 
-    public int PickUp()
+    public Dish PickUp()
     {
-        int temp = dishType;
-        dishType = -1;
+        Dish dish = m_dish;
         m_dish = null;
         StartCoroutine(PostPickUpCoroutine());
-        return temp;
+        return dish;
     }
 
     IEnumerator InitialDelayCoro()

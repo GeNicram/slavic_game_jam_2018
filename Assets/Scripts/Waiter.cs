@@ -12,7 +12,6 @@ public class Waiter : MonoBehaviour {
     protected Rigidbody2D body;
 
     private int m_collectedTip = 0;
-    private int carriedDishType = -1;
     private Dish dish;
 
     private List<Table> tablesInRange = new List<Table>();
@@ -69,7 +68,7 @@ public class Waiter : MonoBehaviour {
 
     public bool IsCarryingDish()
     {
-        return carriedDishType != -1;
+        return dish != null;
     }
 
 	private void ThrowDish()
@@ -80,7 +79,6 @@ public class Waiter : MonoBehaviour {
 
 	private void RemoveDish()
     {
-        carriedDishType = -1;
         dish = null;
     }
 
@@ -118,7 +116,7 @@ public class Waiter : MonoBehaviour {
             if (closestTable != null)
             {
                 Debug.Assert(closestTable.isWaitingForDish);
-                if (closestTable.Serve(carriedDishType))
+                if (closestTable.Serve(dish))
                 {
                     m_collectedTip += closestTable.CollectTip();
 
@@ -144,8 +142,7 @@ public class Waiter : MonoBehaviour {
                         m_collectedTip = 0;
                     }
                 }
-
-                dish.Transfer(closestTable.GetComponent<Transform>().Find("DishPivot"));
+                
                 RemoveDish();
             } else
 			{
@@ -171,11 +168,9 @@ public class Waiter : MonoBehaviour {
             if (closestDishPickup != null)
             {
                 Debug.Assert(closestDishPickup.hasDish);
-
-                dish = closestDishPickup.dish;
+                
+                dish = closestDishPickup.PickUp();
                 dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
-
-                carriedDishType = closestDishPickup.PickUp();
             }
         }
     }
@@ -225,13 +220,4 @@ public class Waiter : MonoBehaviour {
 			waitersInRange.Remove(waiter);
 		}
 	}
-
-    /*void OnGUI()
-    {
-        Transform transform = GetComponent<Transform>();
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.black;
-        GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "Carrying dish type: " + carriedDishType + "\nCollected tip: " + collectedTip, style);
-    }*/
 }

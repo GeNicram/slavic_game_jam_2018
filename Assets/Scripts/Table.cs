@@ -62,15 +62,17 @@ public class Table : MonoBehaviour
         return tip;
     }
 
-    public bool Serve(int dishType)
+    public bool Serve(Dish dish)
     {
-        bool didLeaveCorrectDish = (dishType == desiredDishType);
+        dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
+        bool didLeaveCorrectDish = (dish.type == desiredDishType);
         if (didLeaveCorrectDish)
         {
             LeaveTip(Random.Range(10, 20));//todo
         }
         m_didLeaveCorrectDish = didLeaveCorrectDish;
         StartCoroutine(PostServeCoroutine());
+        StartCoroutine(ConsumeDishCoroutine(dish));
         return didLeaveCorrectDish;
     }
 
@@ -82,21 +84,9 @@ public class Table : MonoBehaviour
         m_isWaitingForDish = true;
     }
 
-    //void OnGUI()
-    //{
-    //    Transform transform = GetComponent<Transform>();
-    //    Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-    //    GUIStyle style = new GUIStyle();
-    //    if (isWaitingForDish)
-    //    {
-    //        style.normal.textColor = Color.black;
-    //        GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "I want dish type <" + desiredDishType + ">", style);
-    //    }
-    //    else
-    //    {
-    //        //style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
-    //        //string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
-    //        //GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
-    //    }
-    //}
+    IEnumerator ConsumeDishCoroutine(Dish dish)
+    {
+        yield return new WaitForSeconds(dishGenerationDelay);
+        Destroy(dish.gameObject);
+    }
 }
