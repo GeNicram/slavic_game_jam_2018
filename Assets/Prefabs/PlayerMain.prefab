@@ -87,7 +87,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4462302403142920}
-  - component: {fileID: 61802125257359208}
   m_Layer: 0
   m_Name: PlayerMain
   m_TagString: Untagged
@@ -211,7 +210,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1166602327781812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.852301, y: -0.8698633, z: -1.3273491}
+  m_LocalPosition: {x: -5.97, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 4520255754288480}
@@ -324,7 +323,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342523734768492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27769917, y: -1.9601367, z: 1.3273491}
+  m_LocalPosition: {x: -0.27769917, y: 2.64, z: 1.3273491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4058684750491290}
@@ -403,7 +402,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0.05, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -414,32 +413,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.75}
-  m_EdgeRadius: 0
---- !u!61 &61802125257359208
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1342523734768492}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.5}
+  m_Size: {x: 0.5, y: 1.25}
   m_EdgeRadius: 0
 --- !u!95 &95565499983685240
 Animator:
@@ -474,6 +448,9 @@ MonoBehaviour:
   incorrectDishPenalty: 10
   incorrectDishPenaltyDeviation: 5
   dashCooldown: 0.5
+  waiter_face: {fileID: 0}
+  waiter_gain_points_particle: {fileID: 114861574312990490, guid: 0ad40435c837ec14984c0a5a606b13ff,
+    type: 2}
 --- !u!114 &114577608407466104
 MonoBehaviour:
   m_ObjectHideFlags: 1
