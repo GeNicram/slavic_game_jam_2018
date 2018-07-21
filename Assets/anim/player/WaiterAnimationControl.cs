@@ -18,5 +18,6 @@ public class WaiterAnimationControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetFloat("speed", body.velocity.magnitude);
+		animator.SetBool("isRight", body.velocity.x >= 0);
 	}
 }

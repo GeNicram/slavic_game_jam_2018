@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4446695586896434}
   - component: {fileID: 212229233002151006}
   m_Layer: 0
-  m_Name: LegL
+  m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4553681840102654}
   - component: {fileID: 212838225041407772}
   m_Layer: 0
-  m_Name: LegR
+  m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331021885487220}
   m_Layer: 0
-  m_Name: LegRPivot
+  m_Name: LegLPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206006894775922}
   m_Layer: 0
-  m_Name: LegLPivot
+  m_Name: LegRPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 4162376187503070}
   - component: {fileID: 114846338580566078}
   - component: {fileID: 50436334722380506}
+  - component: {fileID: 114456724157716194}
   - component: {fileID: 95185317091634090}
   m_Layer: 0
   m_Name: Waiter
@@ -205,8 +206,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995050802855672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.98, y: -3.82, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4334777245630340}
   - {fileID: 4519558159911054}
@@ -224,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764234769212702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 0.262, z: 0}
+  m_LocalPosition: {x: -0.091, y: 0.262, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4446695586896434}
@@ -279,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071461869260688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.104, y: -0.267, z: 0}
+  m_LocalPosition: {x: -0.024, y: -0.273, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4206006894775922}
@@ -401,6 +402,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114456724157716194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995050802855672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb93153a84517d84fa79cc8082ad42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114846338580566078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -413,6 +425,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15000
+  incorrectDishPenalty: 10
+  incorrectDishPenaltyDeviation: 5
+  dashCooldown: 0.5
 --- !u!212 &212229233002151006
 SpriteRenderer:
   m_ObjectHideFlags: 1
