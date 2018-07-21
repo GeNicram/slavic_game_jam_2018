@@ -20,6 +20,9 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
+    public GameObject waiter_face;
+    public GainPoints waiter_gain_points_particle;
+
     public int collectedTip
     {
         get { return m_collectedTip; }
@@ -88,6 +91,16 @@ public class Waiter : MonoBehaviour {
                 if (closestTable.Serve(carriedDishType))
                 {
                     m_collectedTip += closestTable.CollectTip();
+
+                    GainPoints new_particle = Instantiate(waiter_gain_points_particle, new Vector2(5, 0), new Quaternion());
+                    Vector2 particles_destination = new Vector2(10, 5);
+                    if (waiter_face != null) {
+                        particles_destination = waiter_face.transform.position;
+                    }
+                    else
+                        Debug.Log("Please set waiters its faces from GUI");
+
+                    new_particle.destination = new Vector2(Random.Range(-8, -5), Random.Range(-4, 4));
                 }
                 else
                 {
