@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishGenerationDelay: 0.5
   maxRandomDelayDeviation: 0
+  tipEffect: {fileID: 1809992095932608, guid: 072874df6560956458f78f9d3af97b69, type: 2}
 --- !u!212 &212773711172563528
 SpriteRenderer:
   m_ObjectHideFlags: 1

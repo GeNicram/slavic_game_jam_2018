@@ -6,6 +6,8 @@ public class Table : MonoBehaviour
 {
     public float dishGenerationDelay = 2;
     public float maxRandomDelayDeviation = 0;
+    public GameObject tipEffect;
+
     private int m_tip = 0;
     private int m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
@@ -32,6 +34,8 @@ public class Table : MonoBehaviour
     
     public void LeaveTip(int tip)
     {
+        GameObject effect = Instantiate(tipEffect, GetComponent<Transform>().position, Quaternion.identity);
+        effect.GetComponent<TipEffect>().tip = tip;
         m_tip += tip;
     }
 
@@ -74,9 +78,9 @@ public class Table : MonoBehaviour
         }
         else
         {
-            style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
-            string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
-            GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
+            //style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
+            //string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
+            //GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
         }
     }
 }
