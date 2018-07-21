@@ -42,8 +42,7 @@ public class Dish : MonoBehaviour
 
     private void Update()
     {
-        if (m_transferTarget != null)
-        {
+        if (m_transferTarget != null) {
             m_transferRate += transferSpeed * Time.deltaTime;
             m_transferRate = Mathf.Min(m_transferRate, 1.0f);
 
@@ -54,5 +53,11 @@ public class Dish : MonoBehaviour
             float scale = Mathf.Lerp(m_oldScale, m_transferTarget.localScale.x, m_transferRate);
             m_transform.localScale = new Vector3(scale, scale, scale);
         }
+    }
+
+    public void Abandon()
+    {
+        m_transferTarget = null;
+        Destroy(gameObject, 1);
     }
 }

@@ -77,7 +77,8 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-		dish = null;
+        dish.Abandon();
+        RemoveDish();
 	}
 
 	private void RemoveDish()
@@ -105,7 +106,6 @@ public class Waiter : MonoBehaviour {
 
         if (!keep_dish_after_stun) {
             ThrowDish();
-            RemoveDish();
         }
     }
 
@@ -156,7 +156,6 @@ public class Waiter : MonoBehaviour {
             else
             {
                 ThrowDish();
-                RemoveDish();
             }
         }
         else
