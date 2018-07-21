@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Table
   - DishPickup
+  - Obstacle
   layers:
   - Default
   - TransparentFX
