@@ -22,7 +22,8 @@ public class DishPickup : MonoBehaviour
 
     private void Start()
     {
-        SetRandom();
+        StartCoroutine("InitialDelayCoro");
+     //   
     }
 
     public int PickUp()
@@ -31,6 +32,12 @@ public class DishPickup : MonoBehaviour
         dishType = -1;
         StartCoroutine(PostPickUpCoroutine());
         return temp;
+    }
+
+    IEnumerator InitialDelayCoro()
+    {
+        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(-4f, 3f));
+        SetRandom();
     }
 
     IEnumerator PostPickUpCoroutine()
