@@ -22,6 +22,7 @@ public class Waiter : MonoBehaviour {
 
     public GameObject waiter_face;
     public GainPoints waiter_gain_points_particle;
+    public Color waiter_color;
 
     private SpriteRenderer dishSpriteRenderer = null;
 
@@ -107,6 +108,7 @@ public class Waiter : MonoBehaviour {
                         Debug.Log("Please set waiters its faces from GUI");
 
                     new_particle.destination = particles_destination;
+                    new_particle.color = waiter_color;
                 }
                 else
                 {
