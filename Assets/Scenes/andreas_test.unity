@@ -5426,16 +5426,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1365084500883866, guid: ad81a8195df65af47892b582333bfdd2, type: 2}
-      propertyPath: m_Name
-      value: DishPickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 114825918982549140, guid: ad81a8195df65af47892b582333bfdd2,
-        type: 2}
-      propertyPath: dishPrefab
-      value: 
-      objectReference: {fileID: 1697853114584382, guid: ef33f8258ce5f794caae90d6e4e0d3e7,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad81a8195df65af47892b582333bfdd2, type: 2}
   m_IsPrefabAsset: 0

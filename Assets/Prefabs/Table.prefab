@@ -11,14 +11,14 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1490830554375458}
   m_IsPrefabAsset: 1
---- !u!1 &1254935397220950
+--- !u!1 &1362042266047982
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4045092772768124}
+  - component: {fileID: 4888580715494458}
   m_Layer: 0
   m_Name: DishPivot
   m_TagString: Untagged
@@ -46,19 +46,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4045092772768124
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1254935397220950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_Children: []
-  m_Father: {fileID: 4337055562707058}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4337055562707058
 Transform:
   m_ObjectHideFlags: 1
@@ -67,12 +54,25 @@ Transform:
   m_GameObject: {fileID: 1490830554375458}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: -4.1, y: -3.08, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children:
-  - {fileID: 4045092772768124}
+  - {fileID: 4888580715494458}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4888580715494458
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362042266047982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4337055562707058}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &58370668548971468
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -87,7 +87,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.125
 --- !u!58 &58698973795780098
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -102,9 +102,6 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Radius: 0.6
-=======
   m_Radius: 0.1
 --- !u!82 &82963615070927860
 AudioSource:
@@ -201,7 +198,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> efe8ba4a2304e0700d0ee3e6046da6ded1a01274
 --- !u!114 &114088979916806530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a1ef44e6db4f440b87918594ec9bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 3
-  maxRandomDelayDeviation: 2.5
+  dishGenerationDelay: 0.5
+  maxRandomDelayDeviation: 0
   tipEffect: {fileID: 1809992095932608, guid: 072874df6560956458f78f9d3af97b69, type: 2}
   requestPop: {fileID: 82963615070927860}
   pop: {fileID: 8300000, guid: 6f4763a806a67c541acbc888a6f8269f, type: 3}
@@ -253,7 +249,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b0743480f7fb7c45966085d2108813c, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
