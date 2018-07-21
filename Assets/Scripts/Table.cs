@@ -8,6 +8,7 @@ public class Table : MonoBehaviour
     public float maxRandomDelayDeviation = 0;
     public GameObject tipEffect;
     public SpeechBubble speechBubble;
+    public SpriteRenderer exclamation;
 
     private int m_tip = 0;
     private int m_desiredDishType = 0;
@@ -38,6 +39,7 @@ public class Table : MonoBehaviour
         speechBubble.dishType = desiredDishType;
         m_isWaitingForDish = true;
         requestPop.PlayOneShot(pop);
+        m_patience = 15.0f;
     }
 
     private void Start()
@@ -51,6 +53,22 @@ public class Table : MonoBehaviour
     private void Update()
     {
         m_patience -= Time.deltaTime;
+
+        if (isWaitingForDish)
+        {
+            if (m_patience < 5.0f)
+            {
+                exclamation.enabled = (Mathf.FloorToInt(m_patience * 3.0f) % 2 == 0);
+            }
+            else
+            {
+                exclamation.enabled = false;
+            }
+        }
+        else
+        {
+            exclamation.enabled = false;
+        }
     }
 
     IEnumerator RequestDelayCoro()
