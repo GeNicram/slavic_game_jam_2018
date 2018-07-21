@@ -60,12 +60,16 @@ public class EndingScreen : MonoBehaviour {
 
   public void OnClickAgain() {
     Debug.Log("Reloading...");
+        Time.timeScale = 1;
     SceneManager.LoadScene("MainLevel");
+        
     
   }
   public void OnClickQuit() {
     Debug.Log("Quitting...");
-    SceneManager.LoadScene("MainMenu");
+
+        Destroy(FindObjectOfType<AudioScript>().gameObject);
+        SceneManager.LoadScene("MainMenu");
   }
 
   static public void SetResults(int[] results) {

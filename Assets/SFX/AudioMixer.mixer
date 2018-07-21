@@ -25,7 +25,7 @@ AudioMixerController:
     - efc8cafb9310f96409fdd0b64a9e326d
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500006}
+  m_TargetSnapshot: {fileID: 245426744055362360}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MenuToGame
+  m_Name: Game
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 8315f62f3e914d84884ad03c087b9107
   m_FloatValues:
@@ -177,7 +177,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GameToMenu
+  m_Name: Menu
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a4e8aabce47847b4e805b9314ff9d16b
   m_FloatValues:
