@@ -14,7 +14,9 @@ public class Table : MonoBehaviour
     private bool m_isWaitingForDish = false;
     private bool m_didLeaveCorrectDish = true;
     public AudioSource requestPop;
-    public AudioClip pop; 
+    public AudioClip pop;
+    public AudioClip wrongDish;
+    public AudioClip properDish;
     float requestDelay = 3f;
 
     public int desiredDishType
@@ -72,6 +74,10 @@ public class Table : MonoBehaviour
         if (didLeaveCorrectDish)
         {
             LeaveTip(Random.Range(10, 20));//todo
+            requestPop.PlayOneShot(properDish);
+        }
+        else {
+            requestPop.PlayOneShot(wrongDish);
         }
         m_didLeaveCorrectDish = didLeaveCorrectDish;
         StartCoroutine(PostServeCoroutine());
