@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
 
     public Waiter[] waiters;
     public Text[] waiters_points_view;
-    public Text timer_view;
+    public Text[] timer_digits;
 
     public GameObject ending_handler;
 
@@ -20,13 +20,14 @@ public class GameState : MonoBehaviour
 
     public GameState() : base()
     {
-      m_results = new int[4];
+        m_results = new int[4];
     }
 
     // Use this for initialization
     void Start()
     {
         Debug.Assert(waiters.Length == waiters_points_view.Length);
+        Debug.Assert(timer_digits.Length == 4);
 
         for (int i = 0; i < m_results.Length; ++i) {
             m_results[i] = 0;
@@ -37,43 +38,52 @@ public class GameState : MonoBehaviour
         reached_end = false;
 
     }
-	// Update is called once per frame
-	void Update() {
-    if (reached_end)
-      return;
+    // Update is called once per frame
+    void Update() {
+        if (reached_end)
+            return;
 
-    current_time -= Time.deltaTime;
+        current_time -= Time.deltaTime;
 
-    if (current_time <= 0) {
-      current_time = 0;
-      ending_handler.SetActive(true);
-      EndingScreen.SetResults(new int[]{
-        waiters[0].collectedTip, 
+        if (current_time <= 0) {
+            current_time = 0;
+            ending_handler.SetActive(true);
+            EndingScreen.SetResults(new int[]{
+        waiters[0].collectedTip,
         waiters[1].collectedTip,
         waiters[2].collectedTip,
         waiters[3].collectedTip});
-      reached_end = true;
-    }
-	}
-
-  private void OnGUI()
-  {
-    for (int i = 0; i < waiters_points_view.Length; ++i) {
-      waiters_points_view[i].text = waiters[i].collectedTip.ToString();
+            reached_end = true;
+        }
     }
 
-    timer_view.text = FormatTime(current_time);
-  }
-
-    private string FormatTime(float time)
+    private void OnGUI()
     {
+        for (int i = 0; i < waiters_points_view.Length; ++i) {
+            waiters_points_view[i].text = waiters[i].collectedTip.ToString();
+        }
+
+        var digitText = FormatTime(current_time);
+        for (int i = 0; i < 4; ++i)
+        {
+            timer_digits[i].text = digitText[i];
+        }
+    }
+
+    private string[] FormatTime(float time)
+    {
+        int seconds = Mathf.FloorToInt(time) % 60;
         int minutes = Mathf.FloorToInt(time) / 60;
-        int seconds = Mathf.FloorToInt(time);
-        int miliseconds = Mathf.FloorToInt((time - (float)seconds) * 1000);
+        int minutes_tens = minutes / 60;
+        int minutes_ones = minutes % 60;
+        int seconds_tens = seconds / 10;
+        int seconds_ones = seconds % 10;
 
-        seconds %= 60;
-
-        return string.Format("{0:00}:{1:00}.{2:000}",
-          minutes, seconds, miliseconds);
+        return new string[4] {
+            minutes_tens.ToString(),
+            minutes_ones.ToString(),
+            seconds_tens.ToString(),
+            seconds_ones.ToString(),
+        };
     }
 }
