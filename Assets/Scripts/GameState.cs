@@ -48,6 +48,7 @@ public class GameState : MonoBehaviour
         if (current_time <= 0) {
             current_time = 0;
             ending_handler.SetActive(true);
+            Time.timeScale = 0; 
             EndingScreen.SetResults(new int[]{
         waiters[0].collectedTip,
         waiters[1].collectedTip,

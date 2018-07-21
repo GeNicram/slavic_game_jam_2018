@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DishPickup : MonoBehaviour
 {
-    public float dishGenerationDelay = 2.0f;
+    public float dishGenerationDelay = 3.0f;
     public float maxRandomDelayDeviation = 1.0f;
+    public AudioSource audioSC;
+    public AudioClip dishReady;
 
     int dishType = -1;
     
@@ -18,6 +20,7 @@ public class DishPickup : MonoBehaviour
     {
         dishType = Random.Range(0, Common.dishTypeCount - 1);
         GetComponent<SpriteRenderer>().sprite = Common.dishSprites[dishType];
+        audioSC.PlayOneShot(dishReady);
     }
 
     private void Start()
@@ -36,7 +39,7 @@ public class DishPickup : MonoBehaviour
 
     IEnumerator InitialDelayCoro()
     {
-        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(-4f, 3f));
+        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0f, 6f));
         SetRandom();
     }
 

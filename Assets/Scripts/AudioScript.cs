@@ -20,12 +20,12 @@ public class AudioScript : MonoBehaviour {
 
     public void TransitionToGame()
     {
-        GameTheme.TransitionTo(1f);
+        GameTheme.TransitionTo(0.4f);
     }
 
     public void TransitionToMenu()
     {
-        MenuTheme.TransitionTo(1f);
+        MenuTheme.TransitionTo(0.4f);
         
     }
 

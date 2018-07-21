@@ -12,6 +12,9 @@ public class Table : MonoBehaviour
     private int m_desiredDishType = 0;
     private bool m_isWaitingForDish = false;
     private bool m_didLeaveCorrectDish = true;
+    public AudioSource requestPop;
+    public AudioClip pop; 
+    float requestDelay = 3f;
 
     public int desiredDishType
     {
@@ -24,11 +27,19 @@ public class Table : MonoBehaviour
         get { return m_isWaitingForDish; }
     }
 
+
+    IEnumerator RequestDelayCoro()
+    {
+        yield return new WaitForSeconds(requestDelay + Random.Range(0f,10f));
+        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+        m_isWaitingForDish = true;
+        requestPop.PlayOneShot(pop);
+    }
+
     private void Start()
     {
         m_tip = 0;
-        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
-        m_isWaitingForDish = true;
+        StartCoroutine("RequestDelayCoro");
 
     }
     
