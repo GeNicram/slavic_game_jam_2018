@@ -8,6 +8,8 @@ public class WaiterAnimationControl : MonoBehaviour {
 	protected Animator animator;
 	protected Rigidbody2D body;
 
+	protected bool isGoingRight;
+
 	// Use this for initialization
 	void Start () {
 		waiter = GetComponent<Waiter>();
@@ -18,6 +20,14 @@ public class WaiterAnimationControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetFloat("speed", body.velocity.magnitude);
-		animator.SetBool("isRight", body.velocity.x >= 0);
+		if(body.velocity.x > 1)
+		{
+			isGoingRight = true;
+		}
+		else if (body.velocity.x < -1)
+		{
+			isGoingRight = false;
+		}
+		animator.SetBool("isRight", isGoingRight);
 	}
 }
