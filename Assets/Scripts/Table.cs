@@ -7,6 +7,7 @@ public class Table : MonoBehaviour
     public float dishGenerationDelay = 2;
     public float maxRandomDelayDeviation = 0;
     public GameObject tipEffect;
+    public SpeechBubble speechBubble;
 
     private int m_tip = 0;
     private int m_desiredDishType = 0;
@@ -30,10 +31,12 @@ public class Table : MonoBehaviour
     private void SetRandom()
     {
         desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+        speechBubble.dishType = desiredDishType;
     }
 
     private void Start()
     {
+        Debug.Assert(speechBubble != null, "Link the table to a speech bubble.");
         m_tip = 0;
         SetRandom();
         m_isWaitingForDish = true;
@@ -73,6 +76,7 @@ public class Table : MonoBehaviour
         m_didLeaveCorrectDish = didLeaveCorrectDish;
         StartCoroutine(PostServeCoroutine());
         StartCoroutine(ConsumeDishCoroutine(dish));
+        speechBubble.dishType = -1;
         return didLeaveCorrectDish;
     }
 
