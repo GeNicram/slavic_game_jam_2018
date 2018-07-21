@@ -38,6 +38,7 @@ public class WaiterAnimationControl : MonoBehaviour {
 			StartCoroutine(StopUpdatingRotation());
 		}
 		animator.SetBool("isRight", isGoingRight);
+		animator.SetBool("isCarringDish", waiter.IsCarryingDish());
 	}
 
 	IEnumerator StopUpdatingRotation()
