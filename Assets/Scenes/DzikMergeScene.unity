@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &152855866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -646,8 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &436833175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 463343119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.76, y: -4.22, z: -9.095703}
+  m_LocalPosition: {x: -8.68, y: -4.22, z: -9.095703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1491,8 +1491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &1050237699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1744,6 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea3b88145917d468d02fc4c65e4199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadzone: 0.1
   waiters:
   - {fileID: 1283619435}
   - {fileID: 2052499859}
@@ -2023,11 +2024,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4337055562707058, guid: 4f0ba4504a6b04e4994128be07e4c896, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.26
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 4337055562707058, guid: 4f0ba4504a6b04e4994128be07e4c896, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.54
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 4337055562707058, guid: 4f0ba4504a6b04e4994128be07e4c896, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2199,8 +2200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &1574784234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2377,8 +2378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &1675500320
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2595,8 +2596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda3ab56657df145b696b204ed80eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishGenerationDelay: 5
-  maxRandomDelayDeviation: 3
+  dishGenerationDelay: 8
+  maxRandomDelayDeviation: 6
 --- !u!61 &1857251868
 BoxCollider2D:
   m_ObjectHideFlags: 0
