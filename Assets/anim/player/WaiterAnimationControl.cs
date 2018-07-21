@@ -8,7 +8,7 @@ public class WaiterAnimationControl : MonoBehaviour {
 	protected Animator animator;
 	protected Rigidbody2D body;
 
-	protected bool isGoingRight;
+	protected bool isGoingRight = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,14 +20,29 @@ public class WaiterAnimationControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetFloat("speed", body.velocity.magnitude);
-		if(body.velocity.x > 1)
+
+		bool shouldUpdateDirection = false;
+		if (body.velocity.x > 0.5 && !isGoingRight)
 		{
+			shouldUpdateDirection = true;
 			isGoingRight = true;
 		}
-		else if (body.velocity.x < -1)
+		else if (body.velocity.x < -0.5 && isGoingRight)
 		{
+			shouldUpdateDirection = true;
 			isGoingRight = false;
 		}
+		animator.SetBool("shouldUpdateRotation", shouldUpdateDirection);
+		if(shouldUpdateDirection)
+		{
+			StartCoroutine(StopUpdatingRotation());
+		}
 		animator.SetBool("isRight", isGoingRight);
+	}
+
+	IEnumerator StopUpdatingRotation()
+	{
+		yield return new WaitForEndOfFrame();
+		animator.SetBool("shouldUpdateRotation", false);
 	}
 }
