@@ -37,6 +37,7 @@ public class Table : MonoBehaviour
         desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
         speechBubble.dishType = desiredDishType;
         m_isWaitingForDish = true;
+        requestPop.PlayOneShot(pop);
     }
 
     private void Start()
@@ -47,11 +48,15 @@ public class Table : MonoBehaviour
         StartCoroutine(RequestDelayCoro());
     }
 
+    private void Update()
+    {
+        m_patience -= Time.deltaTime;
+    }
+
     IEnumerator RequestDelayCoro()
     {
         yield return new WaitForSeconds(requestDelay + Random.Range(0f,10f));
         SetRandom();
-        requestPop.PlayOneShot(pop);
     }
 
     public void LeaveTip(int tip)
