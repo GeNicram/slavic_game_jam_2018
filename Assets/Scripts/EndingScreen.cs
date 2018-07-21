@@ -66,7 +66,7 @@ public class EndingScreen : MonoBehaviour {
     
   }
   public void OnClickQuit() {
-    Debug.Log("Quitting...");
+    //Debug.Log("Quitting...");
 
         Destroy(FindObjectOfType<AudioScript>().gameObject);
         SceneManager.LoadScene("MainMenu");
