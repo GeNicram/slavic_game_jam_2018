@@ -1585,6 +1585,11 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1269032728}
+    - target: {fileID: 198131591481338818, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0

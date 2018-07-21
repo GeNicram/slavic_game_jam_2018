@@ -67,7 +67,7 @@ public class Waiter : MonoBehaviour {
 		body.AddForce(normalized_input * speed);
 	}
 
-    private bool IsCarryingDish()
+    public bool IsCarryingDish()
     {
         return carriedDishType != -1;
     }
