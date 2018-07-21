@@ -58,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -80,11 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishGenerationDelay: 2
   maxRandomDelayDeviation: 1
-  dishSprites:
-  - {fileID: 21300000, guid: 9e546edcc61d49b468d3c7fccfe44b2d, type: 3}
-  - {fileID: 21300000, guid: be0846a0c0cc2d64eb13f7b339187674, type: 3}
-  - {fileID: 21300000, guid: 6712f97b98b2c04409e3f15460fad202, type: 3}
-  - {fileID: 21300000, guid: b908461b24d9e6c45a240b31e6a67974, type: 3}
 --- !u!212 &212565445978503376
 SpriteRenderer:
   m_ObjectHideFlags: 1
