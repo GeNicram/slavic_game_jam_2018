@@ -6,12 +6,17 @@ public class GainPoints : MonoBehaviour {
 
   public int number_of_points;
   public Vector2 destination;
+  public Color color;
 
   private Vector2 start_position;
   private float passed_time;
 	// Use this for initialization
 	void Start () {
     start_position = transform.position;
+
+    ParticleSystem ps = GetComponent<ParticleSystem>();
+    var main = ps.main;
+    main.startColor = new Color(1, 0, 0);// color;
 
     passed_time = 0;
 	}

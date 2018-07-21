@@ -4863,6 +4863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   number_of_points: 0
   destination: {x: 0, y: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &817318808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,4 +4953,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cd182007f887c4897e7f98e9a416ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point_prefab: {fileID: 30381839}
+  point_prefab: {fileID: 114861574312990490, guid: 0ad40435c837ec14984c0a5a606b13ff,
+    type: 2}
