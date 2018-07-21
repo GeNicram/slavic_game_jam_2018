@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaitersInput : MonoBehaviour {
-
+    public float deadzone = 0.1f;
 	public Waiter[] waiters;
     
 	// Use this for initialization
@@ -30,7 +30,13 @@ public class WaitersInput : MonoBehaviour {
         float vertical_input = Input.GetAxisRaw(vertical_input_name);
 		float horizontal_input = Input.GetAxisRaw(horizontal_input_name);
 		Vector2 input_vector = new Vector2(horizontal_input, vertical_input);
-		current_waiter.ProcessInput(input_vector.normalized);
+
+        if (input_vector.magnitude <= deadzone)
+        {
+            input_vector = Vector2.zero;
+        }
+        
+        current_waiter.ProcessInput(input_vector.normalized);
 
         if (Input.GetButtonDown(dish_action_name))
         {
