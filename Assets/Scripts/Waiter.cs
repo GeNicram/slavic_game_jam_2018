@@ -92,15 +92,16 @@ public class Waiter : MonoBehaviour {
                 {
                     m_collectedTip += closestTable.CollectTip();
 
-                    GainPoints new_particle = Instantiate(waiter_gain_points_particle, new Vector2(5, 0), new Quaternion());
-                    Vector2 particles_destination = new Vector2(10, 5);
+                    GainPoints new_particle = Instantiate(waiter_gain_points_particle,
+                        transform);
+                    Vector2 particles_destination = new Vector2(5, 1);
                     if (waiter_face != null) {
                         particles_destination = waiter_face.transform.position;
                     }
                     else
                         Debug.Log("Please set waiters its faces from GUI");
 
-                    new_particle.destination = new Vector2(Random.Range(-8, -5), Random.Range(-4, 4));
+                    new_particle.destination = particles_destination;
                 }
                 else
                 {
