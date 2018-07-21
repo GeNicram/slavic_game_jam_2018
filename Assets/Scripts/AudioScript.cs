@@ -13,16 +13,20 @@ public class AudioScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+        DontDestroyOnLoad(this.gameObject);
+
+    }
 
     public void TransitionToGame()
     {
+        GameTheme.TransitionTo(1f);
     }
 
     public void TransitionToMenu()
     {
-
+        MenuTheme.TransitionTo(1f);
+        
     }
 
 }

@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
 
     public Canvas mainMenuCanvas;
     public Canvas creditsCanvas;
-
+    public AudioScript audioSC;
 
     private void Start()
     {
@@ -21,14 +21,13 @@ public class MainMenu : MonoBehaviour {
     {
       //  Debug.Log("dupa");
         SceneManager.LoadSceneAsync("MainLevel");
+        audioSC.TransitionToGame();
     }
 
     public void onCreditsClicked()
     {
         creditsCanvas.enabled = true;
         mainMenuCanvas.enabled = false;
-
-
     }
 
     public void onBackButtonClicked()
