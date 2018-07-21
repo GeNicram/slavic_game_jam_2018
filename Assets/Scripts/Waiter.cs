@@ -21,7 +21,8 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
-    private float stun_time = 0;
+    private float current_stun_time = 0;
+    public float total_stun_time;
     private bool keep_dish_after_stun;
     private BubbleAnimate bubble;
 
@@ -59,9 +60,9 @@ public class Waiter : MonoBehaviour {
     public void ProcessInput(Vector2 normalized_input)
 	{
 		if (normalized_input.magnitude == 0) return;
-        if (stun_time > 0)
+        if (current_stun_time > 0)
         {
-            stun_time -= Time.deltaTime;
+            current_stun_time -= Time.deltaTime;
             return;
         }
 		body.AddForce(normalized_input * speed);
@@ -84,13 +85,13 @@ public class Waiter : MonoBehaviour {
 
     private void DropDish()
     {
-        stun_time = 1;
+        current_stun_time = total_stun_time;
         keep_dish_after_stun = false;
-        StartCoroutine(TryToKeepDish(stun_time / 2));
+        StartCoroutine(TryToKeepDish(current_stun_time));
         if (IsCarryingDish()) {
             bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushY,
                 new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
-                stun_time / 2);
+                current_stun_time);
         }
     }
 
@@ -148,7 +149,7 @@ public class Waiter : MonoBehaviour {
                 
                 RemoveDish();
             }
-            else if (stun_time > 0)
+            else if (current_stun_time > 0)
             {
                 keep_dish_after_stun = true;
                 if (bubble)
