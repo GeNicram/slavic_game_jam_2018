@@ -6,16 +6,27 @@ public class Waiter : MonoBehaviour {
 
 	public float speed;
 
-	protected Rigidbody2D body;
+    public int incorrectDishPenalty = 10;
+    public int incorrectDishPenaltyDeviation = 5;
 
-    private uint collectedTip = 0;
+    protected Rigidbody2D body;
+
+    private int m_collectedTip = 0;
     private int carriedDishType = -1;
 
     private List<Table> tablesInRange = new List<Table>();
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
-	// Use this for initialization
-	void Start () {
+    private bool canDash = true;
+    public float dashCooldown = 0.5f;
+
+    public int collectedTip
+    {
+        get { return m_collectedTip; }
+    }
+
+    // Use this for initialization
+    void Start () {
 		body = GetComponent<Rigidbody2D>();
 	}
 	
@@ -26,7 +37,18 @@ public class Waiter : MonoBehaviour {
 
     public void Dash(Vector2 normalized_input)
     {
-        body.AddForce(normalized_input * 155550);
+        if (canDash)
+        {
+            canDash = false;
+            body.AddForce(normalized_input * 155550);
+            StartCoroutine(DashDelayCoroutine());
+        }
+    }
+
+    IEnumerator DashDelayCoroutine()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;  
     }
 
 
@@ -63,9 +85,21 @@ public class Waiter : MonoBehaviour {
             if (closestTable != null)
             {
                 Debug.Assert(closestTable.isWaitingForDish);
-                closestTable.Serve(carriedDishType);
+                if (closestTable.Serve(carriedDishType))
+                {
+                    m_collectedTip += closestTable.CollectTip();
+                }
+                else
+                {
+                    int penalty = Random.Range(incorrectDishPenalty, incorrectDishPenalty + incorrectDishPenaltyDeviation);
+                    m_collectedTip -= penalty;
+                    if (m_collectedTip < 0)
+                    {
+                        m_collectedTip = 0;
+                    }
+                }
+
                 RemoveDish();
-                collectedTip += closestTable.CollectTip();
             }
         }
         else
