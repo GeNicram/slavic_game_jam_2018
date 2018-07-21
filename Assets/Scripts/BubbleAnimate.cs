@@ -16,24 +16,10 @@ public class BubbleAnimate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float alpha = 0;
-
-        if (passed_time < fade_in) {
-            alpha = Mathf.Sin(passed_time / fade_in * Mathf.PI / 2);
-        }
-
-        SetAlpha(Mathf.Sin(passed_time));
-        passed_time += Time.deltaTime;
 	}
 
     public void Fadeout()
     {
         Destroy(this.gameObject);
-    }
-
-    private void SetAlpha(float value)
-    {
-        Color color = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, value);
     }
 }
