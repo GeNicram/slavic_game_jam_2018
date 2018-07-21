@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +19,9 @@ public class Waiter : MonoBehaviour {
 
     private bool canDash = true;
     public float dashCooldown = 0.5f;
+
+    public GameObject waiter_face;
+    public GainPoints waiter_gain_points_particle;
 
     private SpriteRenderer dishSpriteRenderer = null;
 
@@ -92,6 +95,18 @@ public class Waiter : MonoBehaviour {
                 if (closestTable.Serve(carriedDishType))
                 {
                     m_collectedTip += closestTable.CollectTip();
+
+                    GainPoints new_particle = Instantiate(waiter_gain_points_particle,
+                        transform);
+                    Vector2 particles_destination = new Vector2(5, 1);
+                    if (waiter_face != null)
+                    {
+                        particles_destination = waiter_face.transform.position;
+                    }
+                    else
+                        Debug.Log("Please set waiters its faces from GUI");
+
+                    new_particle.destination = particles_destination;
                 }
                 else
                 {
