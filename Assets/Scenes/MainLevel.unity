@@ -2010,7 +2010,7 @@ Prefab:
     - target: {fileID: 114171027088415898, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}
       propertyPath: time_limit_seconds
-      value: 5
+      value: 555
       objectReference: {fileID: 0}
     - target: {fileID: 224279212752774212, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}

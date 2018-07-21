@@ -12,7 +12,14 @@ public class Dish : MonoBehaviour
     float m_transferRate;
 
     Transform m_transform;
+
+    int m_type;
     
+    public int type
+    {
+        get { return m_type; }
+    }
+
     public void Transfer(Transform targetTransform)
     {
         m_oldPos = m_transform.position;
@@ -28,8 +35,11 @@ public class Dish : MonoBehaviour
         m_oldPos = Vector3.zero;
         m_transferTarget = null;
         m_transferRate = 0.0f;
+
+        m_type = Random.Range(0, Common.dishTypeCount - 1);
+        GetComponent<SpriteRenderer>().sprite = Common.dishSprites[m_type];
     }
-    
+
     private void Update()
     {
         if (m_transferTarget != null)
