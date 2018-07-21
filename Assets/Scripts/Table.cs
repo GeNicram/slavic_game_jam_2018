@@ -19,6 +19,8 @@ public class Table : MonoBehaviour
     public AudioClip properDish;
     float requestDelay = 3f;
 
+    private float m_patience;
+
     public int desiredDishType
     {
         get { return m_desiredDishType; }
@@ -34,22 +36,21 @@ public class Table : MonoBehaviour
     {
         desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
         speechBubble.dishType = desiredDishType;
+        m_isWaitingForDish = true;
     }
 
     private void Start()
     {
         Debug.Assert(speechBubble != null, "Link the table to a speech bubble.");
         m_tip = 0;
-        SetRandom();
-        m_isWaitingForDish = true;
+        m_isWaitingForDish = false;
         StartCoroutine(RequestDelayCoro());
     }
 
     IEnumerator RequestDelayCoro()
     {
         yield return new WaitForSeconds(requestDelay + Random.Range(0f,10f));
-        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
-        m_isWaitingForDish = true;
+        SetRandom();
         requestPop.PlayOneShot(pop);
     }
 
@@ -91,7 +92,6 @@ public class Table : MonoBehaviour
         m_isWaitingForDish = false;
         yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0,maxRandomDelayDeviation));
         SetRandom();
-        m_isWaitingForDish = true;
     }
 
     IEnumerator ConsumeDishCoroutine(Dish dish)

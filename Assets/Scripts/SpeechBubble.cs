@@ -28,5 +28,6 @@ public class SpeechBubble : MonoBehaviour
 	private void Start()
     {
         Debug.Assert(bubbleSpriteRenderer != null);
-	}
+        dishType = -1;
+    }
 }
