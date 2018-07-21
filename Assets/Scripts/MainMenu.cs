@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour {
 
     public void onStartClicked()
     {
+      //  Debug.Log("dupa");
         SceneManager.LoadSceneAsync("MainLevel");
     }
 
