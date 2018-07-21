@@ -88,7 +88,7 @@ public class Waiter : MonoBehaviour {
     {
         yield return new WaitForSeconds(time_to_react);
 
-        if (keep_dish_after_stun)
+        if (!keep_dish_after_stun)
             RemoveDish();
     }
 
