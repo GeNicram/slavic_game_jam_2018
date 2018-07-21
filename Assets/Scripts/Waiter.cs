@@ -82,6 +82,9 @@ public class Waiter : MonoBehaviour {
         stun_time = 5;
         keep_dish_after_stun = false;
         StartCoroutine(TryToKeepDish(stun_time / 2));
+        BubbleManager.SpawnBubble(BubbleManager.Bubble.pushY, 
+            new Vector2(transform.position.x + 0.5f, transform.position.y +1),
+            stun_time / 2);
     }
 
     private IEnumerator TryToKeepDish(float time_to_react)
