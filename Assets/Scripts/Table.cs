@@ -24,14 +24,18 @@ public class Table : MonoBehaviour
         get { return m_isWaitingForDish; }
     }
 
+    private void SetRandom()
+    {
+        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+    }
+
     private void Start()
     {
         m_tip = 0;
-        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+        SetRandom();
         m_isWaitingForDish = true;
-
     }
-    
+
     public void LeaveTip(int tip)
     {
         GameObject effect = Instantiate(tipEffect, GetComponent<Transform>().position, Quaternion.identity);
@@ -62,25 +66,25 @@ public class Table : MonoBehaviour
     {
         m_isWaitingForDish = false;
         yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0,maxRandomDelayDeviation));
-        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+        SetRandom();
         m_isWaitingForDish = true;
     }
 
-    void OnGUI()
-    {
-        Transform transform = GetComponent<Transform>();
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        GUIStyle style = new GUIStyle();
-        if (isWaitingForDish)
-        {
-            style.normal.textColor = Color.black;
-            GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "I want dish type <" + desiredDishType + ">", style);
-        }
-        else
-        {
-            //style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
-            //string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
-            //GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
-        }
-    }
+    //void OnGUI()
+    //{
+    //    Transform transform = GetComponent<Transform>();
+    //    Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+    //    GUIStyle style = new GUIStyle();
+    //    if (isWaitingForDish)
+    //    {
+    //        style.normal.textColor = Color.black;
+    //        GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "I want dish type <" + desiredDishType + ">", style);
+    //    }
+    //    else
+    //    {
+    //        //style.normal.textColor = m_didLeaveCorrectDish ? Color.green : Color.red;
+    //        //string text = m_didLeaveCorrectDish ? "Yay" : "That's the wrong dish";
+    //        //GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), text, style);
+    //    }
+    //}
 }

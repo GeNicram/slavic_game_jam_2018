@@ -13,6 +13,7 @@ public class Waiter : MonoBehaviour {
 
     private int m_collectedTip = 0;
     private int carriedDishType = -1;
+    private Dish dish;
 
     private List<Table> tablesInRange = new List<Table>();
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
@@ -24,8 +25,6 @@ public class Waiter : MonoBehaviour {
     public GainPoints waiter_gain_points_particle;
     public Color waiter_color;
 
-    private SpriteRenderer dishSpriteRenderer = null;
-
     public int collectedTip
     {
         get { return m_collectedTip; }
@@ -34,13 +33,6 @@ public class Waiter : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		body = GetComponent<Rigidbody2D>();
-        dishSpriteRenderer = GetComponent<Transform>().Find("Dish").GetComponent<SpriteRenderer>();
-    }
-	
-	void Update()
-    {
-        dishSpriteRenderer.enabled = IsCarryingDish();
-
     }
 
     public void Dash(Vector2 normalized_input)
@@ -75,6 +67,7 @@ public class Waiter : MonoBehaviour {
     private void RemoveDish()
     {
         carriedDishType = -1;
+        dish = null;
     }
 
     public void ProcessDishInput()
@@ -120,6 +113,7 @@ public class Waiter : MonoBehaviour {
                     }
                 }
 
+                dish.Transfer(closestTable.GetComponent<Transform>().Find("DishPivot"));
                 RemoveDish();
             }
         }
@@ -141,8 +135,11 @@ public class Waiter : MonoBehaviour {
             if (closestDishPickup != null)
             {
                 Debug.Assert(closestDishPickup.hasDish);
+
+                dish = closestDishPickup.dish;
+                dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
+
                 carriedDishType = closestDishPickup.PickUp();
-                dishSpriteRenderer.sprite = Common.dishSprites[carriedDishType];
             }
         }
     }
