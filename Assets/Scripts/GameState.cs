@@ -26,7 +26,6 @@ public class GameState : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // TODO: I've cleared waitres and not sure what should be there :)
         Debug.Assert(waiters.Length == waiters_points_view.Length);
 
         for (int i = 0; i < m_results.Length; ++i) {
@@ -48,7 +47,11 @@ public class GameState : MonoBehaviour
     if (current_time <= 0) {
       current_time = 0;
       ending_handler.SetActive(true);
-      EndingScreen.SetResults(m_results);
+      EndingScreen.SetResults(new int[]{
+        waiters[0].collectedTip, 
+        waiters[1].collectedTip,
+        waiters[2].collectedTip,
+        waiters[3].collectedTip});
       reached_end = true;
     }
 	}
@@ -73,9 +76,4 @@ public class GameState : MonoBehaviour
         return string.Format("{0:00}:{1:00}.{2:000}",
           minutes, seconds, miliseconds);
     }
-
-  static public void AddPoints(int player, int points) {
-    m_results[player] += points;
-  }
-
 }

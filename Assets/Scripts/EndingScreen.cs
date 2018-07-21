@@ -34,7 +34,7 @@ public class EndingScreen : MonoBehaviour {
     m_sortet_results.Sort(
       delegate(waitres_and_points a, waitres_and_points b) {
       return (a.m_points == b.m_points ? 0 :
-        (a.m_points < b.m_points) ? 1 : -1);
+        (a.m_points < b.m_points) ? -1 : 1);
     });
 
     for (int i = 0; i < m_sortet_results.Count; ++i) {
