@@ -768,6 +768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1403181556}
+  - component: {fileID: 1403181557}
   m_Layer: 0
   m_Name: AudioMixer
   m_TagString: Untagged
@@ -788,6 +789,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1403181557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1403181555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f820c568372ab5469c220b48b18c3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuTheme: {fileID: 245905881543884248, guid: ad430d4e05f82754691f6c85fa404edc,
+    type: 2}
+  GameTheme: {fileID: 245426744055362360, guid: ad430d4e05f82754691f6c85fa404edc,
+    type: 2}
+  mixer: {fileID: 24100000, guid: ad430d4e05f82754691f6c85fa404edc, type: 2}
 --- !u!1 &1405605087
 GameObject:
   m_ObjectHideFlags: 0
