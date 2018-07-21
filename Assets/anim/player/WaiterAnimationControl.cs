@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WaiterAnimationControl : MonoBehaviour {
 
-	public Waiter waiter;
-	public Animator animator;
-	public Rigidbody2D body;
+	protected Waiter waiter;
+	protected Animator animator;
+	protected Rigidbody2D body;
 
 	// Use this for initialization
 	void Start () {
