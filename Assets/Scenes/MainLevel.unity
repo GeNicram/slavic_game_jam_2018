@@ -3624,7 +3624,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbles:
-  - {fileID: 114517802389043008, guid: 68a45fab8ba0f9d4a8559cc27949d261, type: 2}
+  - {fileID: 114284729679211668, guid: 5ab89b821c523b74c9cb58be14489528, type: 2}
+  - {fileID: 114382320868185144, guid: 5dfe0b3c29971c6438662b02cda5f77c, type: 2}
+  - {fileID: 114323587123483814, guid: 4d09e827a5693134ebe36feffaab9dc7, type: 2}
 --- !u!1001 &2026924665
 Prefab:
   m_ObjectHideFlags: 0

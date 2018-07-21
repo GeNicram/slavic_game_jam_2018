@@ -505,6 +505,7 @@ MonoBehaviour:
   incorrectDishPenaltyDeviation: 5
   dashCooldown: 0.5
   total_stun_time: 1
+  button_pushes_to_keep_dish: 5
   waiter_face: {fileID: 0}
   waiter_gain_points_particle: {fileID: 114861574312990490, guid: 0ad40435c837ec14984c0a5a606b13ff,
     type: 2}

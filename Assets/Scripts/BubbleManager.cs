@@ -6,6 +6,8 @@ public class BubbleManager : MonoBehaviour {
     public enum Bubble : int
     {
         pushY = 0,
+        pushX,
+        pushB,
         other
     };
 
@@ -22,7 +24,7 @@ public class BubbleManager : MonoBehaviour {
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            SpawnBubble(Bubble.pushY, new Vector2(3, 3), 5);
+            SpawnBubble((Bubble)Random.Range(0, 3), new Vector2(Random.Range(-3, 3), 3), 5);
         }
 	}
 

@@ -23,6 +23,8 @@ public class Waiter : MonoBehaviour {
 
     private float current_stun_time = 0;
     public float total_stun_time;
+    private int stun_button_counter;
+    public int button_pushes_to_keep_dish;
     private bool keep_dish_after_stun;
     private BubbleAnimate bubble;
 
@@ -87,10 +89,12 @@ public class Waiter : MonoBehaviour {
     {
         current_stun_time = total_stun_time;
         keep_dish_after_stun = false;
+        stun_button_counter = 0;
+
         StartCoroutine(TryToKeepDish(current_stun_time));
         if (IsCarryingDish()) {
-            bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushY,
-                new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
+            bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushB,
+                new Vector2(transform.position.x + 0.5f, transform.position.y + 0.3f),
                 current_stun_time);
         }
     }
@@ -149,12 +153,6 @@ public class Waiter : MonoBehaviour {
                 
                 RemoveDish();
             }
-            else if (current_stun_time > 0)
-            {
-                keep_dish_after_stun = true;
-                if (bubble)
-                    bubble.Fadeout();
-            }
             else
             {
                 ThrowDish();
@@ -182,6 +180,23 @@ public class Waiter : MonoBehaviour {
                 
                 dish = closestDishPickup.PickUp();
                 dish.Transfer(GetComponent<Transform>().Find("DishPivot"));
+
+                if (bubble)
+                    bubble.Fadeout();
+            }
+        }
+    }
+
+    public void ProcessKeepDish()
+    {
+        if (current_stun_time > 0)
+        {
+            stun_button_counter += 1;
+            if (stun_button_counter >= button_pushes_to_keep_dish) {
+                keep_dish_after_stun = true;
+                current_stun_time = 0;
+                if (bubble)
+                    bubble.Fadeout();
             }
         }
     }
