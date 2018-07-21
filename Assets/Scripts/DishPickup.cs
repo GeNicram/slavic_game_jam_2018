@@ -17,9 +17,10 @@ public class DishPickup : MonoBehaviour
     private void SetRandom()
     {
         dishType = Random.Range(0, Common.dishTypeCount - 1);
+        GetComponent<SpriteRenderer>().sprite = Common.dishSprites[dishType];
     }
 
-    void Start()
+    private void Start()
     {
         SetRandom();
     }
@@ -38,16 +39,8 @@ public class DishPickup : MonoBehaviour
         SetRandom();
     }
 
-    void OnGUI()
+    private void Update()
     {
-        Transform transform = GetComponent<Transform>();
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.black;
-        if (!hasDish)
-        {
-            style.normal.textColor = Color.red;
-        }
-        GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), dishType.ToString(), style);
+        GetComponent<SpriteRenderer>().enabled = hasDish;
     }
 }

@@ -1,7 +1,23 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public static class Common
+public class Common : MonoBehaviour
 {
-    public static int dishTypeCount = 4;
+    public Sprite[] _dishSprites;
+
+    static Common common;
+    private void Awake()
+    {
+        common = this;
+    }
+
+    public static int dishTypeCount
+    {
+        get { return dishSprites.Length; }
+    }
+
+    public static Sprite[] dishSprites
+    {
+        get { return common._dishSprites; }
+    }
 }

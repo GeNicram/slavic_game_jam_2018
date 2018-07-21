@@ -153,12 +153,12 @@ public class Waiter : MonoBehaviour {
         }
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         Transform transform = GetComponent<Transform>();
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         GUIStyle style = new GUIStyle();
         style.normal.textColor = Color.black;
         GUI.Label(new Rect(pos.x, Screen.height - pos.y, 100, 100), "Carrying dish type: " + carriedDishType + "\nCollected tip: " + collectedTip, style);
-    }
+    }*/
 }
