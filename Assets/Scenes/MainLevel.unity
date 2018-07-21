@@ -914,6 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea3b88145917d468d02fc4c65e4199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadzone: 1
   waiters:
   - {fileID: 1074307665}
   - {fileID: 614605514}
@@ -1024,6 +1025,16 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1376172463}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: incorrectDishPenaltyDeviation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: incorrectDishPenalty
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
