@@ -73,7 +73,6 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-		carriedDishType = -1;
 		dish = null;
 	}
 
