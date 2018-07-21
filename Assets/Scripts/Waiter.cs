@@ -21,6 +21,9 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
+    private float stun_time = 0;
+    private bool keep_dish_after_stun;
+
     public GameObject waiter_face;
     public GainPoints waiter_gain_points_particle;
     public Color waiter_color;
@@ -54,8 +57,12 @@ public class Waiter : MonoBehaviour {
 
     public void ProcessInput(Vector2 normalized_input)
 	{
-     
 		if (normalized_input.magnitude == 0) return;
+        if (stun_time > 0)
+        {
+            stun_time -= Time.deltaTime;
+            return;
+        }
 		body.AddForce(normalized_input * speed);
 	}
 
@@ -72,7 +79,17 @@ public class Waiter : MonoBehaviour {
 
     private void DropDish()
     {
-        RemoveDish();
+        stun_time = 5;
+        keep_dish_after_stun = false;
+        StartCoroutine(TryToKeepDish(stun_time / 2));
+    }
+
+    private IEnumerator TryToKeepDish(float time_to_react)
+    {
+        yield return new WaitForSeconds(time_to_react);
+
+        if (!keep_dish_after_stun)
+            RemoveDish();
     }
 
     public void ProcessDishInput()
