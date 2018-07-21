@@ -70,6 +70,11 @@ public class Waiter : MonoBehaviour {
         dish = null;
     }
 
+    private void DropDish()
+    {
+        RemoveDish();
+    }
+
     public void ProcessDishInput()
     {
         if (IsCarryingDish())
@@ -155,6 +160,14 @@ public class Waiter : MonoBehaviour {
         {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Add(pickup);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.relativeVelocity.magnitude > 5) {
+            if (collision.collider.CompareTag("Obstacle"))
+                DropDish();
         }
     }
 

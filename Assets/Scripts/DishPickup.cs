@@ -5,8 +5,10 @@ using UnityEngine;
 public class DishPickup : MonoBehaviour
 {
     public GameObject dishPrefab = null;
-    public float dishGenerationDelay = 2.0f;
+    public float dishGenerationDelay = 3.0f;
     public float maxRandomDelayDeviation = 1.0f;
+    public AudioSource audioSC;
+    public AudioClip dishReady;
 
     private Dish m_dish;
 
@@ -25,10 +27,10 @@ public class DishPickup : MonoBehaviour
     private void SetRandom()
     {
         dishType = Random.Range(0, Common.dishTypeCount - 1);
-
         GameObject dishObject = Instantiate(dishPrefab, GetComponent<Transform>().position, Quaternion.identity);
         dishObject.GetComponent<SpriteRenderer>().sprite = Common.dishSprites[dishType];
         m_dish = dishObject.GetComponent<Dish>();
+        audioSC.PlayOneShot(dishReady);
     }
 
     private void Start()
@@ -49,7 +51,7 @@ public class DishPickup : MonoBehaviour
 
     IEnumerator InitialDelayCoro()
     {
-        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(-4f, 3f));
+        yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0f, 6f));
         SetRandom();
     }
 
