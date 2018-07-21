@@ -84,7 +84,7 @@ public class Waiter : MonoBehaviour {
 
     private void DropDish()
     {
-        stun_time = 4;
+        stun_time = 1;
         keep_dish_after_stun = false;
         StartCoroutine(TryToKeepDish(stun_time / 2));
         if (IsCarryingDish()) {
