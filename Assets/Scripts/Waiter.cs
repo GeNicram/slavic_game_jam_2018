@@ -20,6 +20,8 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
+    private SpriteRenderer dishSpriteRenderer = null;
+
     public int collectedTip
     {
         get { return m_collectedTip; }
@@ -28,12 +30,14 @@ public class Waiter : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		body = GetComponent<Rigidbody2D>();
-	}
+        dishSpriteRenderer = GetComponent<Transform>().Find("Dish").GetComponent<SpriteRenderer>();
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update()
+    {
+        dishSpriteRenderer.enabled = IsCarryingDish();
+
+    }
 
     public void Dash(Vector2 normalized_input)
     {
@@ -121,6 +125,7 @@ public class Waiter : MonoBehaviour {
             {
                 Debug.Assert(closestDishPickup.hasDish);
                 carriedDishType = closestDishPickup.PickUp();
+                dishSpriteRenderer.sprite = Common.dishSprites[carriedDishType];
             }
         }
     }
