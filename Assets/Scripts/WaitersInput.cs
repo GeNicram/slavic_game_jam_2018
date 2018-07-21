@@ -44,7 +44,6 @@ public class WaitersInput : MonoBehaviour {
             current_waiter.ProcessDishInput();
         }
 
-        Debug.Log("Push");
         if (Input.GetButtonDown(keep_dish))
         {
             current_waiter.ProcessKeepDish();

@@ -212,11 +212,6 @@ public class Waiter : MonoBehaviour {
         {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Add(pickup);
-
-            if (bubble == null)
-                bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushX,
-                    new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
-                    current_stun_time);
         }
         else if (collision.CompareTag("Waiter"))
         {
