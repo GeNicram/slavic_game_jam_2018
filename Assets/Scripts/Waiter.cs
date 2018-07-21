@@ -15,7 +15,8 @@ public class Waiter : MonoBehaviour {
     private Dish dish;
 
     private List<Table> tablesInRange = new List<Table>();
-    private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
+	private List<Waiter> waitersInRange = new List<Waiter>();
+	private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
     private bool canDash = true;
     public float dashCooldown = 0.5f;
@@ -70,7 +71,13 @@ public class Waiter : MonoBehaviour {
         return dish != null;
     }
 
-    private void RemoveDish()
+	private void ThrowDish()
+	{
+		carriedDishType = -1;
+		dish = null;
+	}
+
+	private void RemoveDish()
     {
         dish = null;
     }
@@ -137,7 +144,11 @@ public class Waiter : MonoBehaviour {
                 }
                 
                 RemoveDish();
-            }
+            } else
+			{
+				ThrowDish();
+				RemoveDish();
+			}
         }
         else
         {
@@ -176,7 +187,12 @@ public class Waiter : MonoBehaviour {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Add(pickup);
         }
-    }
+		else if (collision.CompareTag("Waiter"))
+		{
+			Waiter waiter = collision.GetComponentInParent<Waiter>();
+			waitersInRange.Add(waiter);
+		}
+	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -198,5 +214,10 @@ public class Waiter : MonoBehaviour {
             DishPickup pickup = collision.GetComponent<DishPickup>();
             dishPickupsInRange.Remove(pickup);
         }
-    }
+		else if (collision.gameObject.CompareTag("Waiter"))
+		{
+			Waiter waiter = collision.GetComponentInParent<Waiter>();
+			waitersInRange.Remove(waiter);
+		}
+	}
 }
