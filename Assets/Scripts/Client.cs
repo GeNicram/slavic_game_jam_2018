@@ -7,10 +7,19 @@ public class Client : MonoBehaviour {
 	public Animation anim;
 	public int numberOfShots;
 	public float gapBetweenShots;
+	public float shootingAngleFromForward;
 	public Transform hand;
 	public Transform firePoint;
 
+	protected float starting_angle;
+
 	public GameObject bulletPrefab;
+
+
+	void Start()
+	{
+		starting_angle = hand.rotation.eulerAngles.z;
+	}
 
 	public void ExpressDissapointment()
 	{
@@ -21,8 +30,8 @@ public class Client : MonoBehaviour {
 	{
 		for(int i = 0; i < numberOfShots; i++)
 		{
-			var random_rot = Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), new Vector3(0, 0, -1));
-			hand.rotation = random_rot;
+			var random_rot = Quaternion.AngleAxis(Random.Range(starting_angle - shootingAngleFromForward, starting_angle + shootingAngleFromForward), new Vector3(0, 0, -1));
+			hand.localRotation = random_rot;
 			//anim.Play();
 			Fire();
 			yield return new WaitForSeconds(gapBetweenShots);

@@ -1799,7 +1799,7 @@ Prefab:
         type: 2}
       propertyPath: exclamation
       value: 
-      objectReference: {fileID: 1686312264}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f0ba4504a6b04e4994128be07e4c896, type: 2}
   m_IsPrefabAsset: 0
@@ -4195,11 +4195,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4438390260067760, guid: ad81a8195df65af47892b582333bfdd2,
     type: 2}
   m_PrefabInternal: {fileID: 1680872454}
---- !u!212 &1686312264 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212229052199958190, guid: be075ee43d21e0a47a09ba2e7ab113cb,
-    type: 2}
-  m_PrefabInternal: {fileID: 692540407}
 --- !u!1 &1707523647
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4444,11 @@ Prefab:
     - target: {fileID: 4089250481569166, guid: bb66649cdb49b504baf184201f1d1643, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 38.286003
+      objectReference: {fileID: 0}
+    - target: {fileID: 114223590061909894, guid: bb66649cdb49b504baf184201f1d1643,
+        type: 2}
+      propertyPath: shootingAngleFromForward
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb66649cdb49b504baf184201f1d1643, type: 2}

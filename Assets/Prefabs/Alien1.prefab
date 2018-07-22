@@ -352,6 +352,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   numberOfShots: 15
   gapBetweenShots: 0.5
+  shootingAngleFromForward: 60
   hand: {fileID: 4852381121353768}
   firePoint: {fileID: 4522490172086688}
   bulletPrefab: {fileID: 1998404028177926, guid: ec5881771f9b56c47b1a427ced2dc167,
