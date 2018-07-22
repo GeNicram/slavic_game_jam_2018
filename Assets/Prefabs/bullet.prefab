@@ -102,6 +102,8 @@ MonoBehaviour:
   lifetime: 7
   stuntime: 1
   bulletSpeed: 125
+  impactEffect: {fileID: 1885857189418250, guid: 14225a5ac81432f48ad7968318ede9aa,
+    type: 2}
 --- !u!212 &212866939990588130
 SpriteRenderer:
   m_ObjectHideFlags: 1

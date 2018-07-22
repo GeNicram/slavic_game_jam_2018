@@ -77,6 +77,12 @@ public class Table : MonoBehaviour
         {
             exclamation.enabled = false;
         }
+
+        if (m_patience <= 0.0f)
+        {
+            m_desiredDishType = -1;
+            speechBubble.dishType = -1;
+        }
     }
 
     IEnumerator RequestDelayCoro()

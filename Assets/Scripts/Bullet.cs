@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour {
 	public float stuntime;
 	public float bulletSpeed;
 
+    public GameObject impactEffect;
+
 	// Use this for initialization
 	void Start () {
 		body = GetComponent<Rigidbody2D>();
@@ -26,8 +28,9 @@ public class Bullet : MonoBehaviour {
 	{
 		var potential_waiter = collision.gameObject.GetComponentInParent<Waiter>();
 		if (potential_waiter == null) return;
-
+        
 		potential_waiter.BeginStun();
-		Destroy(gameObject);
+        Destroy(Instantiate(impactEffect, GetComponent<Transform>().position, Quaternion.identity), 0.5f);
+        Destroy(gameObject);
 	}
 }
