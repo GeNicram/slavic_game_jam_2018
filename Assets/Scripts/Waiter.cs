@@ -33,6 +33,8 @@ public class Waiter : MonoBehaviour {
     public int button_pushes_to_keep_dish;
     private bool keep_dish_after_stun;
     private BubbleAnimate bubble;
+    private bool is_slow_down = false;
+    public float slow_down_time = 2;
 
     public GameObject waiter_face;
     public GainPoints waiter_gain_points_particle;
@@ -84,7 +86,6 @@ public class Waiter : MonoBehaviour {
         return is_dashing;
     }
 
-
     public void ProcessInput(Vector2 normalized_input)
 	{
 		if (normalized_input.magnitude == 0) return;
@@ -92,7 +93,7 @@ public class Waiter : MonoBehaviour {
         {
             return;
         }
-		body.AddForce(normalized_input * speed);
+		body.AddForce(normalized_input * speed * (is_slow_down ? 0.5f : 1));
 	}
 
     public bool IsCarryingDish()
@@ -150,8 +151,19 @@ public class Waiter : MonoBehaviour {
         yield return new WaitForSeconds(time_to_react);
 
         if (!keep_dish_after_stun) {
+            SlowDown();
             ThrowDish();
         }
+    }
+    private void SlowDown()
+    {
+        is_slow_down = true;
+        StartCoroutine(SlowDownCoroutine());
+    }
+    private IEnumerator SlowDownCoroutine()
+    {
+        yield return new WaitForSeconds(slow_down_time);
+        is_slow_down = false;
     }
 
     public void ProcessDishInput()
