@@ -79,8 +79,9 @@ public class Table : MonoBehaviour
 
     public void LeaveTip(int tip)
     {
-        GameObject effect = Instantiate(tipEffect, GetComponent<Transform>().position, Quaternion.identity);
-        effect.GetComponent<TipEffect>().tip = tip;
+        // Tip effect disabled
+        //GameObject effect = Instantiate(tipEffect, GetComponent<Transform>().position, Quaternion.identity);
+        //effect.GetComponent<TipEffect>().tip = tip;
         m_tip += tip;
     }
 
@@ -97,7 +98,8 @@ public class Table : MonoBehaviour
         bool didLeaveCorrectDish = (dish.type == desiredDishType);
         if (didLeaveCorrectDish)
         {
-            LeaveTip(Random.Range(10, 20));//todo
+            int calculate_tip = Random.Range(1, 3) + (int)Mathf.Max(0, m_patience);
+            LeaveTip(calculate_tip);
             requestPop.PlayOneShot(properDish);
         }
         else {
