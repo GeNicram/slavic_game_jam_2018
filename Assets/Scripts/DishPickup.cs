@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DishPickup : MonoBehaviour
 {
@@ -32,8 +33,7 @@ public class DishPickup : MonoBehaviour
     private void Start()
     {
         Debug.Assert(dishPrefab != null);
-        StartCoroutine("InitialDelayCoro");
-     //   
+        StartCoroutine(InitialDelayCoro());
     }
 
     public Dish PickUp()
@@ -47,12 +47,28 @@ public class DishPickup : MonoBehaviour
     IEnumerator InitialDelayCoro()
     {
         yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0f, 6f));
-        SetRandom();
+        while (true)
+        {
+            if (Dish.CanInstantiate())
+            {
+                SetRandom();
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator PostPickUpCoroutine()
     {
         yield return new WaitForSeconds(dishGenerationDelay + Random.Range(0.0f, maxRandomDelayDeviation));
-        SetRandom();
+        while (true)
+        {
+            if (Dish.CanInstantiate())
+            {
+                SetRandom();
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

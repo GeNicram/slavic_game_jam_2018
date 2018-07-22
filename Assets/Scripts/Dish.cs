@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dish : MonoBehaviour
 {
+    static List<int> s_dishTypesInPlay = new List<int>();
+
     public float transferSpeed = 10.0f;
 
     Vector3 m_oldPos;
@@ -28,16 +30,60 @@ public class Dish : MonoBehaviour
         m_transferRate = 0.0f;
     }
 
-	private void Start()
+    public static bool CanInstantiate()
+    {
+        return FindObjectsOfType<Dish>().Length < FindObjectsOfType<DishPickup>().Length;
+    }
+
+    private static int[] Shuffle(int n)
+    {
+        var random = new System.Random();
+        var result = new int[n];
+        for (var i = 0; i < n; i++)
+        {
+            var j = random.Next(0, i + 1);
+            if (i != j)
+            {
+                result[i] = result[j];
+            }
+            result[j] = i;
+        }
+        return result;
+    }
+
+    private void Awake()
     {
         m_transform = GetComponent<Transform>();
         m_transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);//hack
         m_oldPos = Vector3.zero;
         m_transferTarget = null;
         m_transferRate = 0.0f;
+        
+        m_type = -1;
+        int[] typemap = Shuffle(Common.dishTypeCount);
+        for (int i = 0; i < Common.dishTypeCount; ++i)
+        {
+            int dishType = typemap[i];
+            if (!s_dishTypesInPlay.Contains(dishType))
+            {
+                m_type = dishType;
+                break;
+            }
+        }
 
-        m_type = Random.Range(0, Common.dishTypeCount - 1);
+        // there's at least one of each dish, just pick a random one
+        if (m_type == -1)
+        {
+            m_type = Random.Range(0, Common.dishTypeCount - 1);
+        }
+
+        s_dishTypesInPlay.Add(m_type);
         GetComponent<SpriteRenderer>().sprite = Common.dishSprites[m_type];
+    }
+
+    private void OnDestroy()
+    {
+        s_dishTypesInPlay.Remove(m_type);
     }
 
     private void Update()
