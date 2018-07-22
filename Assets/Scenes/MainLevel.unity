@@ -3349,7 +3349,7 @@ Prefab:
     - target: {fileID: 223938495622140272, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114318073870140744, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}

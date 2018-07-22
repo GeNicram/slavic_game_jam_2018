@@ -151,7 +151,7 @@ public class Waiter : MonoBehaviour {
                     m_collectedTip += got_tip;
 
                     GainPoints new_particle = Instantiate(waiter_gain_points_particle,
-                        transform.position, new Quaternion());
+                        closestTable.transform.position, new Quaternion());
                     Vector2 particles_destination = new Vector2(5, 1);
                     if (waiter_face != null)
                     {
