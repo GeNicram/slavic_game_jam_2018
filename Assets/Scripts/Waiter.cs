@@ -21,6 +21,11 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
+    public AudioClip dashSFX;
+    public AudioClip collideSFX;
+    AudioSource audioSC;
+
+
     private float current_stun_time = 0;
     public float total_stun_time;
     private int stun_button_counter;
@@ -40,6 +45,7 @@ public class Waiter : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		body = GetComponent<Rigidbody2D>();
+        audioSC = GetComponent<AudioSource>();
     }
 
     public void Dash(Vector2 normalized_input)
@@ -47,6 +53,7 @@ public class Waiter : MonoBehaviour {
         if (canDash)
         {
             canDash = false;
+            audioSC.PlayOneShot(dashSFX);
             body.AddForce(normalized_input * 155550);
             StartCoroutine(DashDelayCoroutine());
         }
@@ -77,7 +84,6 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
         dish.Abandon();
         RemoveDish();
 	}
@@ -101,6 +107,11 @@ public class Waiter : MonoBehaviour {
 		waitersInRange[waiterTested].dish = null;
 		dish = dishToSteal;
 		dish.Transfer(transform);
+	}
+
+	public void BeginStun(float stun_time)
+	{
+		current_stun_time = stun_time;
 	}
 
 	private void DropDish()
@@ -237,6 +248,7 @@ public class Waiter : MonoBehaviour {
             Waiter waiter = collision.GetComponentInParent<Waiter>();
 			if (waiter == this) return;
             waitersInRange.Add(waiter);
+        //    audioSC.PlayOneShot(collideSFX);
         }
 	}
 
@@ -244,6 +256,7 @@ public class Waiter : MonoBehaviour {
     {
         if (collision.relativeVelocity.magnitude > 5) {
             if (collision.collider.CompareTag("Obstacle"))
+                audioSC.PlayOneShot(collideSFX);
                 DropDish();
         }
     }
