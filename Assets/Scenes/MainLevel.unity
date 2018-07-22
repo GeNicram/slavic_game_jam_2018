@@ -1051,6 +1051,21 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.r
+      value: 0.9725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.g
+      value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_face
+      value: 
+      objectReference: {fileID: 1391993959}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2403,6 +2418,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_face
+      value: 
+      objectReference: {fileID: 1391993958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -3336,7 +3361,7 @@ Prefab:
     - target: {fileID: 223938495622140272, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114318073870140744, guid: 727a35090c8cec74d9c8bb65f418efc1,
         type: 2}
@@ -3904,6 +3929,26 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!1 &1391993958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000879488354854, guid: 727a35090c8cec74d9c8bb65f418efc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391993933}
+--- !u!1 &1391993959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1223060268135420, guid: 727a35090c8cec74d9c8bb65f418efc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391993933}
+--- !u!1 &1391993960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1379615644357480, guid: 727a35090c8cec74d9c8bb65f418efc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391993933}
+--- !u!1 &1391993961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1672675551342242, guid: 727a35090c8cec74d9c8bb65f418efc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391993933}
 --- !u!1001 &1449385388
 Prefab:
   m_ObjectHideFlags: 0
@@ -4594,6 +4639,26 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.b
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_face
+      value: 
+      objectReference: {fileID: 1391993961}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -5372,6 +5437,26 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.r
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_face
+      value: 
+      objectReference: {fileID: 1391993960}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0

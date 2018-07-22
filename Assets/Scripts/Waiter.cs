@@ -77,8 +77,13 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
+<<<<<<< Updated upstream
         dish.Abandon();
         RemoveDish();
+=======
+		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
+		dish = null;
+>>>>>>> Stashed changes
 	}
 
 	private void RemoveDish()
@@ -86,7 +91,23 @@ public class Waiter : MonoBehaviour {
         dish = null;
     }
 
-    private void DropDish()
+	private void ReclaimDish()
+	{
+		Dish dishToSteal = null;
+		int waiterTested = 0;
+		do
+		{
+			if (waiterTested >= waitersInRange.Count) return;
+			dishToSteal = waitersInRange[waiterTested].dish;
+			waiterTested++;
+		} while (dishToSteal == null);
+		
+		waitersInRange[waiterTested].dish = null;
+		dish = dishToSteal;
+		dish.Transfer(transform);
+	}
+
+	private void DropDish()
     {
         current_stun_time = total_stun_time;
         keep_dish_after_stun = false;
@@ -126,10 +147,11 @@ public class Waiter : MonoBehaviour {
                 Debug.Assert(closestTable.isWaitingForDish);
                 if (closestTable.Serve(dish))
                 {
-                    m_collectedTip += closestTable.CollectTip();
+                    int got_tip = closestTable.CollectTip();
+                    m_collectedTip += got_tip;
 
                     GainPoints new_particle = Instantiate(waiter_gain_points_particle,
-                        transform.position, new Quaternion());
+                        closestTable.transform.position, new Quaternion());
                     Vector2 particles_destination = new Vector2(5, 1);
                     if (waiter_face != null)
                     {
@@ -140,6 +162,7 @@ public class Waiter : MonoBehaviour {
 
                     new_particle.destination = particles_destination;
                     new_particle.color = waiter_color;
+                    new_particle.number_of_points = got_tip;
                 }
                 else
 		        {
@@ -155,7 +178,8 @@ public class Waiter : MonoBehaviour {
             }
             else
             {
-                ThrowDish();
+				ReclaimDish();
+                RemoveDish();
             }
         }
         else
@@ -215,6 +239,7 @@ public class Waiter : MonoBehaviour {
         else if (collision.CompareTag("Waiter"))
         {
             Waiter waiter = collision.GetComponentInParent<Waiter>();
+			if (waiter == this) return;
             waitersInRange.Add(waiter);
         }
 	}
