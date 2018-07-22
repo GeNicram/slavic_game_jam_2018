@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		body = GetComponent<Rigidbody2D>();
-		body.AddForce(transform.up * bulletSpeed);
+		body.AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
 		StartCoroutine(Fly());
 	}
 	
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour {
 		if (potential_waiter == null) return;
         
 		potential_waiter.BeginStun();
-        Destroy(Instantiate(impactEffect, GetComponent<Transform>().position, Quaternion.identity), 0.5f);
+        Destroy(Instantiate(impactEffect, potential_waiter.GetComponent<Transform>().position + new Vector3(0, 0.4f, 0), Quaternion.identity), 0.5f);
         Destroy(gameObject);
 	}
 }

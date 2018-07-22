@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 7
   stuntime: 1
-  bulletSpeed: 125
+  bulletSpeed: 10
   impactEffect: {fileID: 1885857189418250, guid: 14225a5ac81432f48ad7968318ede9aa,
     type: 2}
 --- !u!212 &212866939990588130
