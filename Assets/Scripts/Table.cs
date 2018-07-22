@@ -8,6 +8,7 @@ public class Table : MonoBehaviour
     public float maxRandomDelayDeviation = 0;
     public GameObject tipEffect;
     public SpeechBubble speechBubble;
+	public Client client;
     public SpriteRenderer exclamation;
 
     private int m_tip = 0;
@@ -64,6 +65,13 @@ public class Table : MonoBehaviour
             {
                 exclamation.enabled = false;
             }
+			if (m_patience < 0.0f)
+			{
+				client.ExpressDissapointment();
+				m_tip = 0;
+				m_isWaitingForDish = false;
+				StartCoroutine(RequestDelayCoro());
+			}
         }
         else
         {

@@ -84,7 +84,6 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
         dish.Abandon();
         RemoveDish();
 	}
@@ -108,6 +107,11 @@ public class Waiter : MonoBehaviour {
 		waitersInRange[waiterTested].dish = null;
 		dish = dishToSteal;
 		dish.Transfer(transform);
+	}
+
+	public void BeginStun(float stun_time)
+	{
+		current_stun_time = stun_time;
 	}
 
 	private void DropDish()
