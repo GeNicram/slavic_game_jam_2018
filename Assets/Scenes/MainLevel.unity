@@ -1116,6 +1116,8 @@ MonoBehaviour:
   shootSFX: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
   bulletPrefab: {fileID: 1998404028177926, guid: ec5881771f9b56c47b1a427ced2dc167,
     type: 2}
+  animatorrr: {fileID: 1834636444}
+  animSpeed: 0.75
 --- !u!1001 &312630785
 Prefab:
   m_ObjectHideFlags: 0
@@ -1290,6 +1292,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2037,6 +2043,16 @@ Prefab:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
+    - target: {fileID: 114789334993580098, guid: d84910cd1a3b74b469f16150609e3870,
+        type: 2}
+      propertyPath: animatorrr
+      value: 
+      objectReference: {fileID: 951607505}
+    - target: {fileID: 114789334993580098, guid: d84910cd1a3b74b469f16150609e3870,
+        type: 2}
+      propertyPath: animSpeed
+      value: 0.314
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84910cd1a3b74b469f16150609e3870, type: 2}
   m_IsPrefabAsset: 0
@@ -2843,6 +2859,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &951607505 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95954710653326814, guid: d84910cd1a3b74b469f16150609e3870,
+    type: 2}
+  m_PrefabInternal: {fileID: 617180912}
 --- !u!1 &979555093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3010,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -3292,6 +3317,16 @@ Prefab:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
+    - target: {fileID: 114500357520124594, guid: 004fbff0640ad0f4c95b37c864d30175,
+        type: 2}
+      propertyPath: animatorrr
+      value: 
+      objectReference: {fileID: 1531439697}
+    - target: {fileID: 114500357520124594, guid: 004fbff0640ad0f4c95b37c864d30175,
+        type: 2}
+      propertyPath: animSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 004fbff0640ad0f4c95b37c864d30175, type: 2}
   m_IsPrefabAsset: 0
@@ -4911,6 +4946,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1531439697 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95688936807135186, guid: 004fbff0640ad0f4c95b37c864d30175,
+    type: 2}
+  m_PrefabInternal: {fileID: 1164484655}
 --- !u!1 &1555869879 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1216776499380458, guid: bb66649cdb49b504baf184201f1d1643,
@@ -5532,6 +5572,11 @@ Prefab:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
+    - target: {fileID: 114223590061909894, guid: bb66649cdb49b504baf184201f1d1643,
+        type: 2}
+      propertyPath: animSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb66649cdb49b504baf184201f1d1643, type: 2}
   m_IsPrefabAsset: 0
@@ -5709,6 +5754,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -6517,6 +6566,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0

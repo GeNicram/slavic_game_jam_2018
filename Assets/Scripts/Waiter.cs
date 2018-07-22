@@ -19,6 +19,7 @@ public class Waiter : MonoBehaviour {
     private List<DishPickup> dishPickupsInRange = new List<DishPickup>();
 
     private bool canDash = true;
+    private bool is_dashing = false;
     public float dashCooldown = 0.5f;
 
     public AudioClip dashSFX;
@@ -54,8 +55,10 @@ public class Waiter : MonoBehaviour {
         {
             canDash = false;
             audioSC.PlayOneShot(dashSFX);
+            is_dashing = true;
             body.AddForce(normalized_input * 155550);
             StartCoroutine(DashDelayCoroutine());
+            StartCoroutine(DashingDelayCoroutine());
         }
     }
 
@@ -63,6 +66,16 @@ public class Waiter : MonoBehaviour {
     {
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;  
+    }
+    IEnumerator DashingDelayCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        is_dashing = false;  
+    }
+
+    public bool IsDashing()
+    {
+        return is_dashing;
     }
 
 
@@ -84,8 +97,12 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-        dish.Abandon();
-        RemoveDish();
+        if (dish != null)
+        {
+    		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
+            dish.Abandon();
+            RemoveDish();
+        }
 	}
 
 	private void RemoveDish()
@@ -109,24 +126,18 @@ public class Waiter : MonoBehaviour {
 		dish.Transfer(transform);
 	}
 
-	public void BeginStun(float stun_time)
+	public void BeginStun()
 	{
-		current_stun_time = stun_time;
-	}
-
-	private void DropDish()
-    {
         current_stun_time = total_stun_time;
+
         keep_dish_after_stun = false;
         stun_button_counter = 0;
 
         StartCoroutine(TryToKeepDish(current_stun_time));
-        if (IsCarryingDish()) {
-            bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushB,
-                new Vector2(transform.position.x + 0.5f, transform.position.y + 0.3f),
-                current_stun_time);
-        }
-    }
+        bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushB,
+            new Vector2(transform.position.x + 0.5f, transform.position.y + 0.3f),
+            current_stun_time);
+	}
 
     private IEnumerator TryToKeepDish(float time_to_react)
     {
@@ -257,7 +268,31 @@ public class Waiter : MonoBehaviour {
         if (collision.relativeVelocity.magnitude > 5) {
             if (collision.collider.CompareTag("Obstacle"))
                 audioSC.PlayOneShot(collideSFX);
-                DropDish();
+                BeginStun();
+
+            if (current_stun_time <= 0 && collision.collider.CompareTag("WaiterCollider"))
+            {
+                Waiter waiter = collision.collider.gameObject.transform.parent.gameObject.GetComponent<Waiter>();
+                if (waiter)
+                {
+                    if (waiter.current_stun_time > 0 || current_stun_time > 0)
+                        return;
+
+                    if (IsDashing() && waiter.IsDashing())
+                    {
+                        waiter.BeginStun();
+                        BeginStun();
+                    }
+                    else if (IsDashing())
+                    {
+                        waiter.BeginStun();
+                    }
+                    else if (waiter.IsDashing())
+                    {
+                        BeginStun();
+                    }
+                }
+            }
         }
     }
 
