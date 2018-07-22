@@ -13,13 +13,16 @@ public class Client : MonoBehaviour {
 	public SpriteRenderer handRenderer;
 
 	protected float starting_angle;
+    public AudioClip shootSFX;
+    AudioSource audioSC;
 
-	public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
 
 
 	void Start()
 	{
 		handRenderer.enabled = false;
+        audioSC = GetComponent<AudioSource>();
 		starting_angle = hand.rotation.eulerAngles.z;
 	}
 
@@ -47,6 +50,7 @@ public class Client : MonoBehaviour {
 		var bullet = Instantiate(bulletPrefab);
 		var hand_euler = hand.rotation.eulerAngles;
 		var bullet_direction = new Vector3(hand_euler.x, hand_euler.y, hand_euler.z + 90);
+        audioSC.PlayOneShot(shootSFX);
 		bullet.transform.rotation = Quaternion.Euler(bullet_direction);
 		bullet.transform.position = firePoint.position;
 	}
