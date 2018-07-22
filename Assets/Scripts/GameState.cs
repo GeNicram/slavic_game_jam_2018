@@ -36,6 +36,12 @@ public class GameState : MonoBehaviour
         current_time = time_limit_seconds;
         ending_handler.SetActive(false);
         reached_end = false;
+
+
+        previousTip = new int[4];
+        currentTip = new int[4];
+        destinyTip = new int[4];
+        passed_tip_counter = new float[4];
     }
     // Update is called once per frame
     void Update() {
@@ -55,12 +61,30 @@ public class GameState : MonoBehaviour
         waiters[3].collectedTip});
             reached_end = true;
         }
+
+        for (int i = 0; i < waiters_points_view.Length; ++i) {
+            if (waiters[i].collectedTip != destinyTip[i]) {
+                previousTip[i] = currentTip[i];
+                destinyTip[i] = waiters[i].collectedTip;
+                passed_tip_counter[i] = 0;
+                Debug.Log("New");
+            }
+
+            currentTip[i] = (int)Mathf.Lerp((float)previousTip[i], (float)destinyTip[i], (float)passed_tip_counter[i]);
+            passed_tip_counter[i] += Time.deltaTime;
+        }
+
     }
+
+    private int[] previousTip;
+    private int[] currentTip;
+    private int[] destinyTip;
+    private float[] passed_tip_counter;
 
     private void OnGUI()
     {
         for (int i = 0; i < waiters_points_view.Length; ++i) {
-            waiters_points_view[i].text = waiters[i].collectedTip.ToString();
+            waiters_points_view[i].text = currentTip[i].ToString(); //waiters[i].collectedTip.ToString();
         }
 
         var digitText = FormatTime(current_time);
