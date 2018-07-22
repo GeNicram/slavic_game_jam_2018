@@ -8,6 +8,9 @@ public class Dish : MonoBehaviour
 
     public float transferSpeed = 10.0f;
 
+    public GameObject poof;
+    private bool doPoof = false;
+
     Vector3 m_oldPos;
     float m_oldScale;
     Transform m_transferTarget;
@@ -84,6 +87,11 @@ public class Dish : MonoBehaviour
     private void OnDestroy()
     {
         s_dishTypesInPlay.Remove(m_type);
+
+        if (doPoof)
+        {
+            Destroy(Instantiate(poof, GetComponent<Transform>().position, Quaternion.identity), 0.25f);
+        }
     }
 
     private void Update()
@@ -103,6 +111,7 @@ public class Dish : MonoBehaviour
 
     public void Abandon()
     {
+        doPoof = true;
         m_transferTarget = null;
         Destroy(gameObject, 1);
     }
