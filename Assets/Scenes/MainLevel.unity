@@ -1590,7 +1590,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!61 &396499021
 BoxCollider2D:
@@ -2781,6 +2781,12 @@ Prefab:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
+    - target: {fileID: 212018064596940320, guid: be075ee43d21e0a47a09ba2e7ab113cb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce95b82b8709c1b4282ba4187a63a57b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be075ee43d21e0a47a09ba2e7ab113cb, type: 2}
   m_IsPrefabAsset: 0
@@ -6130,6 +6136,12 @@ Prefab:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: 92b12e005e9b273489cd4e2842425be7, type: 3}
+    - target: {fileID: 212222192051501348, guid: bb66649cdb49b504baf184201f1d1643,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85c5a1f92647c1742ab2dbc7ea322df3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb66649cdb49b504baf184201f1d1643, type: 2}
   m_IsPrefabAsset: 0
@@ -6665,6 +6677,12 @@ Prefab:
       propertyPath: animSpeed
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 212222192051501348, guid: bb66649cdb49b504baf184201f1d1643,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85c5a1f92647c1742ab2dbc7ea322df3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb66649cdb49b504baf184201f1d1643, type: 2}
   m_IsPrefabAsset: 0
