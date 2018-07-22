@@ -135,7 +135,7 @@ public class Table : MonoBehaviour
 
     IEnumerator ConsumeDishCoroutine(Dish dish)
     {
-        yield return new WaitForSeconds(dishGenerationDelay);
+        yield return new WaitForSeconds(1.0f);
         Destroy(dish.gameObject);
     }
 }
