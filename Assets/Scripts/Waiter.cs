@@ -248,7 +248,7 @@ public class Waiter : MonoBehaviour {
             Waiter waiter = collision.GetComponentInParent<Waiter>();
 			if (waiter == this) return;
             waitersInRange.Add(waiter);
-            audioSC.PlayOneShot(collideSFX);
+        //    audioSC.PlayOneShot(collideSFX);
         }
 	}
 

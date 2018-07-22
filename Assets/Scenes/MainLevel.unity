@@ -1167,6 +1167,16 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: collideSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 93d2044215a2b1e4da3b03dd87123951, type: 3}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2644,6 +2654,16 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: collideSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 93d2044215a2b1e4da3b03dd87123951, type: 3}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -5137,6 +5157,16 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: collideSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 93d2044215a2b1e4da3b03dd87123951, type: 3}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -5838,6 +5868,16 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: collideSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 93d2044215a2b1e4da3b03dd87123951, type: 3}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
