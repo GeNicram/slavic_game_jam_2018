@@ -1066,6 +1066,16 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1391993959}
+    - target: {fileID: 82792643081587258, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2428,6 +2438,16 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1391993958}
+    - target: {fileID: 82792643081587258, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -4659,6 +4679,16 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1391993961}
+    - target: {fileID: 82792643081587258, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -5457,6 +5487,16 @@ Prefab:
       propertyPath: waiter_face
       value: 
       objectReference: {fileID: 1391993960}
+    - target: {fileID: 82792643081587258, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: dashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0

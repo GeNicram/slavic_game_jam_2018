@@ -21,6 +21,11 @@ public class Waiter : MonoBehaviour {
     private bool canDash = true;
     public float dashCooldown = 0.5f;
 
+    public AudioClip dashSFX;
+    public AudioClip collideSFX;
+    AudioSource audioSC;
+
+
     private float current_stun_time = 0;
     public float total_stun_time;
     private int stun_button_counter;
@@ -40,6 +45,7 @@ public class Waiter : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		body = GetComponent<Rigidbody2D>();
+        audioSC = GetComponent<AudioSource>();
     }
 
     public void Dash(Vector2 normalized_input)
@@ -47,6 +53,7 @@ public class Waiter : MonoBehaviour {
         if (canDash)
         {
             canDash = false;
+            audioSC.PlayOneShot(dashSFX);
             body.AddForce(normalized_input * 155550);
             StartCoroutine(DashDelayCoroutine());
         }
