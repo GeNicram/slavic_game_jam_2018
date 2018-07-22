@@ -244,6 +244,7 @@ public class Waiter : MonoBehaviour {
             Waiter waiter = collision.GetComponentInParent<Waiter>();
 			if (waiter == this) return;
             waitersInRange.Add(waiter);
+            audioSC.PlayOneShot(collideSFX);
         }
 	}
 
@@ -251,6 +252,7 @@ public class Waiter : MonoBehaviour {
     {
         if (collision.relativeVelocity.magnitude > 5) {
             if (collision.collider.CompareTag("Obstacle"))
+                audioSC.PlayOneShot(collideSFX);
                 DropDish();
         }
     }
