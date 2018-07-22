@@ -1290,6 +1290,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2989,6 +2993,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -5709,6 +5717,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -6517,6 +6529,10 @@ Prefab:
       propertyPath: dashSFX
       value: 
       objectReference: {fileID: 8300000, guid: 468330b126e60eb49bec7947a162fcca, type: 3}
+    - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
+      propertyPath: m_TagString
+      value: WaiterCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0

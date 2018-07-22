@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
 		var potential_waiter = collision.gameObject.GetComponentInParent<Waiter>();
 		if (potential_waiter == null) return;
 
-		potential_waiter.BeginStun(stuntime);
+		potential_waiter.BeginStun();
 		Destroy(gameObject);
 	}
 }
