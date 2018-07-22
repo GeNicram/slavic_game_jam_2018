@@ -10,6 +10,7 @@ public class Client : MonoBehaviour {
 	public float shootingAngleFromForward;
 	public Transform hand;
 	public Transform firePoint;
+	public SpriteRenderer handRenderer;
 
 	protected float starting_angle;
 
@@ -18,11 +19,13 @@ public class Client : MonoBehaviour {
 
 	void Start()
 	{
+		handRenderer.enabled = false;
 		starting_angle = hand.rotation.eulerAngles.z;
 	}
 
 	public void ExpressDissapointment()
 	{
+		handRenderer.enabled = true;
 		StartCoroutine(ExpressingDissapointmentCoroutine());
 	}
 
@@ -36,6 +39,7 @@ public class Client : MonoBehaviour {
 			Fire();
 			yield return new WaitForSeconds(gapBetweenShots);
 		}
+		handRenderer.enabled = false;
 	}
 
 	void Fire()

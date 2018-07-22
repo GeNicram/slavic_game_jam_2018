@@ -355,6 +355,7 @@ MonoBehaviour:
   shootingAngleFromForward: 60
   hand: {fileID: 4852381121353768}
   firePoint: {fileID: 4522490172086688}
+  handRenderer: {fileID: 212218542981755086}
   bulletPrefab: {fileID: 1998404028177926, guid: ec5881771f9b56c47b1a427ced2dc167,
     type: 2}
 --- !u!212 &212022477559670374
