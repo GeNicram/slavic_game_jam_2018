@@ -49,6 +49,12 @@ public class Waiter : MonoBehaviour {
         audioSC = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        if (current_stun_time >= 0)
+            current_stun_time -= Time.deltaTime;
+    }
+
     public void Dash(Vector2 normalized_input)
     {
         if (canDash)
@@ -84,7 +90,6 @@ public class Waiter : MonoBehaviour {
 		if (normalized_input.magnitude == 0) return;
         if (current_stun_time > 0)
         {
-            current_stun_time -= Time.deltaTime;
             return;
         }
 		body.AddForce(normalized_input * speed);
@@ -133,10 +138,11 @@ public class Waiter : MonoBehaviour {
         keep_dish_after_stun = false;
         stun_button_counter = 0;
 
-        StartCoroutine(TryToKeepDish(current_stun_time));
         bubble = BubbleManager.SpawnBubble(BubbleManager.Bubble.pushB,
             new Vector2(transform.position.x + 0.5f, transform.position.y + 0.3f),
             current_stun_time);
+
+        StartCoroutine(TryToKeepDish(current_stun_time));
 	}
 
     private IEnumerator TryToKeepDish(float time_to_react)
@@ -265,34 +271,39 @@ public class Waiter : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.relativeVelocity.magnitude > 5) {
-            if (collision.collider.CompareTag("Obstacle"))
-            {
-                audioSC.PlayOneShot(collideSFX);
-                BeginStun();
-            }
 
-            if (current_stun_time <= 0 && collision.collider.CompareTag("WaiterCollider"))
+        if (!IsDashing())
+            return;
+
+        if (collision.collider.CompareTag("Obstacle"))
+        {
+            audioSC.PlayOneShot(collideSFX);
+            BeginStun();
+        }
+
+        if (collision.collider.CompareTag("WaiterCollider"))
+        {
+            Waiter waiter = collision.collider.gameObject.transform.parent.gameObject.GetComponent<Waiter>();
+            if (waiter)
             {
-                Waiter waiter = collision.collider.gameObject.transform.parent.gameObject.GetComponent<Waiter>();
-                if (waiter)
+                if (waiter.current_stun_time > 0 || current_stun_time > 0)
+                    return;
+
+                if (IsDashing() && waiter.IsDashing())
                 {
-                    if (waiter.current_stun_time > 0 || current_stun_time > 0)
-                        return;
-
-                    if (IsDashing() && waiter.IsDashing())
-                    {
-                        waiter.BeginStun();
-                        BeginStun();
-                    }
-                    else if (IsDashing())
-                    {
-                        waiter.BeginStun();
-                    }
-                    else if (waiter.IsDashing())
-                    {
-                        BeginStun();
-                    }
+                    waiter.BeginStun();
+                    BeginStun();
+        Debug.Log("Stun together");
+                }
+                else if (IsDashing())
+                {
+                    waiter.BeginStun();
+        Debug.Log("Stun him");
+                }
+                else if (waiter.IsDashing())
+                {
+                    BeginStun();
+        Debug.Log("Stun me");
                 }
             }
         }
