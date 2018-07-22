@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		var potential_waiter = collision.gameObject.GetComponent<Waiter>();
+		var potential_waiter = collision.gameObject.GetComponentInParent<Waiter>();
 		if (potential_waiter == null) return;
 
 		potential_waiter.BeginStun(stuntime);
