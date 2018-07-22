@@ -186,7 +186,7 @@ public class Waiter : MonoBehaviour {
             else
             {
 				ReclaimDish();
-                RemoveDish();
+                //RemoveDish();
             }
         }
         else
