@@ -17,12 +17,17 @@ public class Client : MonoBehaviour {
     AudioSource audioSC;
 
     public GameObject bulletPrefab;
-
+    public Animator animatorrr;
+    public float animSpeed;
 
 	void Start()
 	{
 		handRenderer.enabled = false;
         audioSC = GetComponent<AudioSource>();
+        if (animatorrr != null)
+        {
+            animatorrr.speed = animSpeed;
+        }
 		starting_angle = hand.rotation.eulerAngles.z;
 	}
 
