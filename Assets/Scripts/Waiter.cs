@@ -77,13 +77,9 @@ public class Waiter : MonoBehaviour {
 
 	private void ThrowDish()
 	{
-<<<<<<< Updated upstream
+		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
         dish.Abandon();
         RemoveDish();
-=======
-		dish.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(body.velocity.x, body.velocity.y));
-		dish = null;
->>>>>>> Stashed changes
 	}
 
 	private void RemoveDish()
