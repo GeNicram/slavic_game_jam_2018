@@ -215,7 +215,6 @@ public class Waiter : MonoBehaviour {
             else
             {
 				ReclaimDish();
-                //RemoveDish();
             }
         }
         else
@@ -258,6 +257,11 @@ public class Waiter : MonoBehaviour {
                     bubble.Fadeout();
             }
         }
+    }
+
+    public void ProcessThrowDish()
+    {
+        ThrowDish();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
