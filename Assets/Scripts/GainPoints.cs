@@ -17,6 +17,8 @@ public class GainPoints : MonoBehaviour {
         ParticleSystem ps = GetComponent<ParticleSystem>();
         var main = ps.main;
         main.startColor = color;
+
+        main.maxParticles = number_of_points;
     
         passed_time = 0;
 	}

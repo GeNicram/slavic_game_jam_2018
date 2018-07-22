@@ -126,7 +126,8 @@ public class Waiter : MonoBehaviour {
                 Debug.Assert(closestTable.isWaitingForDish);
                 if (closestTable.Serve(dish))
                 {
-                    m_collectedTip += closestTable.CollectTip();
+                    int got_tip = closestTable.CollectTip();
+                    m_collectedTip += got_tip;
 
                     GainPoints new_particle = Instantiate(waiter_gain_points_particle,
                         transform.position, new Quaternion());
@@ -140,6 +141,7 @@ public class Waiter : MonoBehaviour {
 
                     new_particle.destination = particles_destination;
                     new_particle.color = waiter_color;
+                    new_particle.number_of_points = got_tip;
                 }
                 else
 		        {
