@@ -267,8 +267,10 @@ public class Waiter : MonoBehaviour {
     {
         if (collision.relativeVelocity.magnitude > 5) {
             if (collision.collider.CompareTag("Obstacle"))
+            {
                 audioSC.PlayOneShot(collideSFX);
                 BeginStun();
+            }
 
             if (current_stun_time <= 0 && collision.collider.CompareTag("WaiterCollider"))
             {
