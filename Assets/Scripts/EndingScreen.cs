@@ -31,19 +31,25 @@ public class EndingScreen : MonoBehaviour {
             m_sortet_results.Add(new waitres_and_points(ref m_waitres_colors[i], m_results[i]));
         }
 
-    m_sortet_results.Sort(
-        delegate(waitres_and_points a, waitres_and_points b) {
-        return (a.m_points == b.m_points ? 0 :
-            (a.m_points < b.m_points) ? -1 : 1);
-    });
+        m_sortet_results.Sort(
+            delegate(waitres_and_points a, waitres_and_points b) {
+            return (a.m_points == b.m_points ? 0 :
+                (a.m_points < b.m_points) ? -1 : 1);
+        });
 
         for (int i = 0; i < m_sortet_results.Count; ++i) {
             m_sortet_results[i].animate_destination_position = new Vector2(3.8f, i);
         }
 
+        foreach (var r in FindObjectsOfType<SpriteRenderer>())
+        {
+            r.enabled = false;
+        }
+
         SpriteRenderer renderer = winning_hat.GetComponent<SpriteRenderer>();
         renderer.color = m_sortet_results[3].m_waitrer_color;
-	}
+        renderer.enabled = true;
+    }
 
   float m_passed_time;
 	
@@ -53,6 +59,10 @@ public class EndingScreen : MonoBehaviour {
 	}
 
     public void OnClickAgain() {
+        //foreach (var r in FindObjectsOfType<SpriteRenderer>())
+        //{
+        //    r.enabled = true;
+        //}
         Time.timeScale = 1;
         SceneManager.LoadScene("MainLevel");
       }
