@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927106f646c74f0409e96a13307bf49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time_limit_seconds: 2
+  time_limit_seconds: 20
   waiters:
   - {fileID: 1801466915}
   - {fileID: 2132490858}
@@ -2449,11 +2449,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8603213a80ef9aa41b0a566609802fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_waitres_faces:
-  - {fileID: 1391993961}
-  - {fileID: 1391993960}
-  - {fileID: 1391993959}
-  - {fileID: 1391993958}
+  m_waitres_colors:
+  - {r: 1, g: 0, b: 0.8000001, a: 1}
+  - {r: 0.098039225, g: 0.93725497, b: 0.0627451, a: 1}
+  - {r: 0.97647065, g: 1, b: 0, a: 1}
+  - {r: 0.93725497, g: 0.0627451, b: 0.0627451, a: 1}
+  winning_hat: {fileID: 2087422319}
 --- !u!222 &637807140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7609,7 +7610,7 @@ GameObject:
   - component: {fileID: 2087422320}
   - component: {fileID: 2087422321}
   m_Layer: 5
-  m_Name: New Sprite
+  m_Name: WiningHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7622,8 +7623,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087422319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: 57, z: 0}
-  m_LocalScale: {x: 300, y: 300, z: 1}
+  m_LocalPosition: {x: -27, y: 69, z: 0}
+  m_LocalScale: {x: 400, y: 400, z: 1}
   m_Children: []
   m_Father: {fileID: 672539723}
   m_RootOrder: 4
