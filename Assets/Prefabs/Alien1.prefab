@@ -350,8 +350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  numberOfShots: 15
-  gapBetweenShots: 0.5
+  numberOfShots: 3
+  gapBetweenShots: 1
   shootingAngleFromForward: 60
   hand: {fileID: 4852381121353768}
   firePoint: {fileID: 4522490172086688}
@@ -577,7 +577,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a664eb5c1c669e346bd3c6a2b8f442d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48fec0e9c9a2e8a4db8d6226cd076e54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
