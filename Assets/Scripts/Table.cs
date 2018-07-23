@@ -36,7 +36,7 @@ public class Table : MonoBehaviour
     
     private void SetRandom()
     {
-        desiredDishType = Random.Range(0, Common.dishTypeCount - 1);
+        desiredDishType = Random.Range(0, Common.dishTypeCount);
         speechBubble.dishType = desiredDishType;
         m_isWaitingForDish = true;
         requestPop.PlayOneShot(pop);

@@ -77,7 +77,7 @@ public class Dish : MonoBehaviour
         // there's at least one of each dish, just pick a random one
         if (m_type == -1)
         {
-            m_type = Random.Range(0, Common.dishTypeCount - 1);
+            m_type = Random.Range(0, Common.dishTypeCount);
         }
 
         s_dishTypesInPlay.Add(m_type);

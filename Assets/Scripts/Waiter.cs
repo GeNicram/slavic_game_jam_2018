@@ -26,7 +26,6 @@ public class Waiter : MonoBehaviour {
     public AudioClip collideSFX;
     AudioSource audioSC;
 
-
     private float current_stun_time = 0;
     public float total_stun_time;
     private int stun_button_counter;

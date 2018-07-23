@@ -1430,6 +1430,16 @@ Prefab:
       propertyPath: m_TagString
       value: WaiterCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: button_pushes_to_keep_dish
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -3762,6 +3772,16 @@ Prefab:
     - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
       propertyPath: m_TagString
       value: WaiterCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: waiter_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: button_pushes_to_keep_dish
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
@@ -7091,6 +7111,11 @@ Prefab:
       propertyPath: m_TagString
       value: WaiterCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: button_pushes_to_keep_dish
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
   m_IsPrefabAsset: 0
@@ -8003,6 +8028,11 @@ Prefab:
     - target: {fileID: 1068272815613992, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
       propertyPath: m_TagString
       value: WaiterCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846338580566078, guid: 5bfaddf19544b6b42956080b4f8904e4,
+        type: 2}
+      propertyPath: button_pushes_to_keep_dish
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaddf19544b6b42956080b4f8904e4, type: 2}
